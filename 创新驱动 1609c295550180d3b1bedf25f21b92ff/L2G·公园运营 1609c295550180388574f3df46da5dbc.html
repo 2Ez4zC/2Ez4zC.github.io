@@ -1,0 +1,716 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>L2G·公园运营</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1609c295-5501-8038-8574-f3df46da5dbc" class="page sans"><header><h1 class="page-title">L2G·公园运营</h1><p class="page-description"></p></header><div class="page-body"><h3 id="1609c295-5501-80b5-b3d3-e43f205bb0be" class="">存在形式：运营细胞单元</h3><p id="1609c295-5501-8034-872e-edb19be6ba4b" class="">网络经济细胞单元？</p><p id="1609c295-5501-8046-9aa9-c7618253fdfe" class="">游戏化运营单元</p><p id="1609c295-5501-80db-a38a-cc943668120d" class="">由IT行业企业承运？</p><p id="1609c295-5501-80f6-8b2f-d3218adeaee0" class="">联合元素：亲子、自然体验、快闪</p><h3 id="1609c295-5501-80e4-afd1-d48801f30f4c" class="">针对限制的独特优势</h3><p id="1609c295-5501-80a8-ac9f-fd7170ba6ecb" class="">轻实体资产、轻投入</p><p id="1609c295-5501-8003-bf63-fe20f7ac7189" class="">重内容，大拓展空间</p><p id="1609c295-5501-80c0-a875-c616b31f71f2" class="">不占地</p><p id="1609c295-5501-8098-9e00-f99430e7e1a6" class="">价值的迸发</p><p id="1609c295-5501-80a8-b490-e7ded46b2abc" class="">互联网经济领域有很多反直觉的现象。</p><p id="1609c295-5501-803c-b2c0-c06b942a620e" class="">如体育游戏的年货</p><p id="1609c295-5501-80be-8b67-ef2a59b97ec8" class="">纪念意义，稀缺性</p><p id="1609c295-5501-80e9-bccd-d96613ec7297" class="">流量、抽象、联名</p><p id="1609c295-5501-8033-a8d0-cffff86921d2" class="">
+</p><p id="1609c295-5501-80ef-b277-cd62149708f7" class="">（PPT里有很多更新）</p><p id="1609c295-5501-80cd-a49b-e063b1ed2064" class="">
+</p><p id="1609c295-5501-80cc-9256-ed92f5471d5d" class="">
+</p><hr id="1609c295-5501-800e-afc8-cb202da1863c"/><p id="1609c295-5501-80a9-b0f8-dc88d576897c" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">政策</summary><div class="indented"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1609c295-5501-809a-9735-c3d95c1d9e35"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><h3 id="1609c295-5501-8004-a583-cfea9b77215d" class="">国务院关于促进服务消费高质量发展的意见 国发〔2024〕18号</h3><p id="1609c295-5501-80f7-9b2a-fcb8bbd0406a" class=""><a href="https://www.gov.cn/zhengce/zhengceku/202408/content_6966275.htm">国务院关于促进服务消费高质量发展的意见_国务院文件_中国政府网 (www.gov.cn)</a></p><p id="1609c295-5501-80fa-aef5-fdc702415cee" class="">三、激发改善型消费活力</p><p id="1609c295-5501-80bb-94bc-c42e25be78b1" class="">（四）文化娱乐消费。深入开展全国文化和旅游消费促进活动，持续实施“百城百区”文化和旅游消费行动计划。加强非物质文化遗产保护传承，开发具有地域和民族特色的文化创意重点项目。扩大文化演出市场供给，提高审批效率，增加演出场次。丰富影片供给，支持以分线发行等差异化模式发行影片，促进电影关联消费。<strong>提升网络文学、网络表演、网络游戏、广播电视和网络视听质量，深化电视层层收费和操作复杂治理，加快超高清电视发展，鼓励沉浸体验、剧本娱乐、数字艺术、线上演播等新业态发展。</strong></p><p id="1609c295-5501-80a7-a9d8-ca8489974f10" class="">（五）旅游消费。加强国家文化和旅游消费示范城市建设，推动国家级夜间文化和旅游消费集聚区创新规范发展，实施美好生活度假休闲工程和乡村旅游提质增效行动。推进商旅文体健融合发展，提升项目体验性、互动性，推出多种类型特色旅游产品，鼓励邮轮游艇、房车露营、低空飞行等新业态发展，支持“音乐+旅游”、“演出+旅游”、“赛事+旅游”等融合业态发展。增开银发旅游专列，对车厢进行适老化、舒适化改造，丰富旅游线路和服务供给。鼓励各地制定实施景区门票优惠、淡季免费开放等政策。提升交通运输服务品质，完善立体换乘、汽车租赁等服务，便利旅客出行。优化入境政策和消费环境，加快恢复航班班次，提供多样化支付服务，研究扩大免签国家范围，深化文化旅游年活动。</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1609c295-5501-80b4-a4f3-e43ebbc40294"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><h3 id="1609c295-5501-8044-832f-d393867f1c5d" class="">中共中央关于进一步全面深化改革 推进中国式现代化的决定 新华社北京7月21日电</h3><p id="1609c295-5501-80fb-a59e-cf66cdda9b9e" class=""><a href="https://www.gov.cn/zhengce/202407/content_6963772.htm">中共中央关于进一步全面深化改革 推进中国式现代化的决定_最新政策_中国政府网 (www.gov.cn)</a></p><p id="1609c295-5501-80a7-8d27-f0c6a51b31e0" class="">——聚焦建设社会主义文化强国，坚持马克思主义在意识形态领域指导地位的根本制度，健全文化事业、文化产业发展体制机制，推动文化繁荣，丰富人民精神文化生活，提升国家文化软实力和中华文化影响力。</p><p id="1609c295-5501-80d6-8d90-e3405d2df1de" class="">十、深化文化体制机制改革</p><p id="1609c295-5501-802d-ada5-ef205268de92" class="">（39）<strong>优化文化服务和文化产品供给机制。</strong>完善公共文化服务体系，建立优质文化资源直达基层机制，健全社会力量参与公共文化服务机制，推进公共文化设施所有权和使用权分置改革。深化文化领域国资国企改革，分类推进文化事业单位深化内部改革，完善文艺院团建设发展机制。</p><p id="1609c295-5501-8095-919a-e3491e9cdd52" class="">坚持以人民为中心的创作导向，坚持出成果和出人才相结合、抓作品和抓环境相贯通，改进文艺创作生产服务、引导、组织工作机制。<strong>健全文化产业体系和市场体系，完善文化经济政策。探索文化和科技融合的有效机制，加快发展新型文化业态。深化文化领域行政审批备案制度改革，加强事中事后监管。深化文娱领域综合治理。</strong></p><p id="1609c295-5501-8005-91b9-ff9daca0f38f" class="">建立文化遗产保护传承工作协调机构，建立文化遗产保护督察制度，推动文化遗产系统性保护和统一监管。构建中华文明标识体系。健全文化和旅游深度融合发展体制机制。完善全民健身公共服务体系，改革完善竞技体育管理体制和运行机制。</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1609c295-5501-80a3-899b-e8d8cdeb8a44"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><h3 id="1609c295-5501-804c-83e8-d36b84be3b91" class="">国务院办公厅关于以高水平开放推动服务贸易高质量发展的意见 国办发〔2024〕44号</h3><p id="1609c295-5501-803c-85df-e703b20386b1" class=""><a href="https://www.gov.cn/zhengce/content/202409/content_6971879.htm">国务院办公厅关于以高水平开放推动服务贸易高质量发展的意见_对外经贸合作_中国政府网 (www.gov.cn)</a></p><p id="1609c295-5501-800f-a93c-d2bc4d4eb18d" class="">四、推进重点领域创新发展</p><p id="1609c295-5501-806f-808f-f565ed5235a1" class="">（十二）鼓励传统优势服务出口。进一步完善支持文化贸易高质量发展的政策措施。推动中国武术、围棋等体育服务出口。促进中医药服务贸易健康发展，积极发展“互联网+中医药服务贸易”。支持中华老字号等知名餐饮企业开展中餐品牌国际化经营，提升中华餐饮文化国际影响力。<strong>积极运用数字技术、人工智能等创新服务供给，提升服务业国际竞争力。</strong></p><p id="1609c295-5501-80b4-9a66-e80ff1d38250" class="">（十三）促进服务贸易与货物贸易融合发展。优化保税监管模式，支持各地区依托综合保税区开展“两头在外”的研发、检测、维修、文物及文化艺术品仓储展示等业务。推动服务贸易与高端制造业融合发展，在生物医药、飞机、汽车、工程机械等领域细化出台专项政策举措，支持制造业企业对外提供具有国际竞争力的专业化、综合性服务。</p><p id="1609c295-5501-805b-bd35-cc1d72c85c1b" class="">（十四）扩大优质服务进口。修订鼓励进口服务目录，扩大国内急需的生产性服务进口。聚焦居民消费升级需求，推动医疗健康、文化娱乐等优质生活性服务进口。在具备条件的地区引入国际精品赛事，举办涉外电影展映和交流合作活动，进一步丰富市场供给，<strong>推动生活性服务业品质化发展。</strong></p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1609c295-5501-805a-b661-f2c7ddd44798"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><h3 id="1609c295-5501-808d-9e6b-d597f4806b6d" class="">中共中央 国务院关于加快经济社会发展全面绿色转型的意见 （2024年7月31日）</h3><p id="1609c295-5501-8087-8c58-c39dfeb8355f" class=""><a href="https://www.gov.cn/zhengce/202408/content_6967665.htm">中共中央 国务院关于加快经济社会发展全面绿色转型的意见_最新政策_中国政府网 (www.gov.cn)</a></p><p id="1609c295-5501-80c1-9201-e5c7e06a077a" class="">三、加快产业结构绿色低碳转型</p><p id="1609c295-5501-8076-8a0d-c1a9bb9b2834" class="">（四）大力发展绿色低碳产业。加快发展战略性新兴产业，建设绿色制造体系和服务体系，不断提升绿色低碳产业在经济总量中的比重。加快培育有竞争力的绿色低碳企业，打造一批领军企业和专精特新中小企业。大力推广合同能源管理、合同节水管理、环境污染第三方治理等模式和以环境治理效果为导向的环境托管服务。<strong>推动文化产业高质量发展，促进文化和旅游深度融合发展。</strong>积极鼓励绿色低碳导向的新产业、新业态、新商业模式加快发展。到2030年，节能环保产业规模达到15万亿元左右。</p></div></figure><p id="1609c295-5501-8027-9227-fdccea6de49c" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">可行性、条件、机遇</summary><div class="indented"><p id="1609c295-5501-8028-8623-c9b5e4eb4572" class="">
+</p><h3 id="1609c295-5501-800f-b1f4-e179c96c863c" class="">参与方、角色、职能</h3><p id="1609c295-5501-80e1-808b-c590c5127d2c" class="">公园运营主体</p><p id="1609c295-5501-80c1-93d3-e2410e124e18" class="">游戏公司？发行商？</p><p id="1609c295-5501-80c3-a29c-d3716b60f9e0" class="">互联网公司</p><p id="1609c295-5501-80d7-b5fc-cfdbfb319be2" class="">游戏工作室</p><h3 id="1609c295-5501-8024-a76a-c501e2c6f3ae" class="">公园运营</h3><p id="1609c295-5501-809a-956c-eba1f79c08b7" class="">公园游戏是游戏发行的新模式？公园运营主体作为游戏发行商？</p><p id="1609c295-5501-80e1-a3e8-f4cc72f92aff" class="">公园作为整个投资项目的时候，游戏化运营作为整体投资内容的一部分？</p><p id="1609c295-5501-80fe-aef0-f6f70a70c4ad" class="">游戏化运营，目前缺乏实证</p><p id="1609c295-5501-804a-9863-c78c28581433" class="">只是我的主观判断，缺乏试验</p><p id="1609c295-5501-806a-89cb-e24b95738134" class="">本人对互联网经济产业相关的研究也比较少，不足以支撑更深入的探讨。</p><p id="1609c295-5501-80e8-8968-fc39f2d76ed5" class="">效益反馈，验证机制</p><p id="1609c295-5501-8029-8e55-cd35160d1f97" class="">通过客流量？周边商户的营收情况？</p><p id="1609c295-5501-8047-9138-e6969c9257ca" class="">还是网络，app的运营数据？</p><h3 id="1609c295-5501-80d7-8674-e0e1c632d4c5" class="">游戏投资</h3><p id="1609c295-5501-8052-a610-e2b21580d381" class="">发行：面向一个项目</p><p id="1609c295-5501-802e-b538-d7aed5476a05" class="">投资：面向一个团队</p></div></details><p id="1609c295-5501-8073-93a7-fff63a5b7388" class="">
+</p><p id="1609c295-5501-804c-ba56-d15f0b0efa63" class="">
+</p><p id="1609c295-5501-806d-807c-f7d79749b330" class="">
+</p><p id="1609c295-5501-80c7-b657-e270036b3787" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

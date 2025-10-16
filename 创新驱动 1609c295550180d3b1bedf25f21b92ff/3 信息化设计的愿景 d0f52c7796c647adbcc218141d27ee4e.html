@@ -1,0 +1,780 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>3 信息化设计的愿景</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d0f52c77-96c6-47ad-bcc2-18141d27ee4e" class="page sans"><header><h1 class="page-title">3 信息化设计的愿景</h1><p class="page-description"></p></header><div class="page-body"><p id="4ecb7f4d-1a52-400a-a059-9e6b6e8e37ff" class="">
+</p><p id="b2c65f2a-ac01-4a04-a728-45921305f82d" class="">本篇主要讨论三个问题：</p><p id="e84f13f6-5343-44e8-842c-d5055b698687" class="">信息化设计好在哪儿（必要性）</p><p id="2e81f031-1141-4d27-bd93-f62062546ef9" class="">我们需要信息化设计么？（需求导向）</p><p id="52b91a7b-cf4e-4aa0-a671-0aa086def464" class="">信息化设计的愿景（愿景）</p><p id="aba87d50-6e51-42e2-8a91-a867e35da55d" class="">
+</p><hr id="c1e69445-c39e-4b84-9b60-348f0428500c"/><hr id="aa27fd47-3275-459d-953a-765818c5f285"/><p id="4d1fed96-8b23-414c-b3bb-04a018c64e7a" class="">
+</p><p id="571a7825-abb3-489c-b68d-bdfebef89ef1" class="">
+</p><p id="ff8d1bc2-e580-457e-bd2e-b41753af5500" class="">
+</p><p id="38c0ae2c-9c45-4a35-9700-3661d4d7e8c4" class="">
+</p><hr id="6d70395a-a67c-4470-ada2-c57f8599eaf6"/><hr id="11173206-0c3e-43b2-ad17-4496d104c632"/><p id="64afdaac-9774-4b22-a417-716c00b6c422" class="">
+</p><h1 id="f77655f8-d4df-4a53-81a6-e24cd9780d20" class="">3.1 信息化设计好在哪（必要性）</h1><p id="c95aa6e4-8dfa-4f7d-9c65-5d95bcbc9ed6" class="">
+</p><p id="ac59567f-a8c3-4b18-9244-715234fe6e0b" class="">“某央企设计院领导：全员学BIM，不然就滚蛋”</p><p id="ec6e6050-87bb-47d7-a711-0c0c40f02bdd" class="">“某事务所：Rhino是最基本的软件能力”</p><p id="5606c710-06c3-4e11-bc8d-6047967981c0" class="">“00后再设计院一开始全面使用AI绘图”</p><p id="8cafd229-d2ff-4f46-8249-714e1c7b0a4f" class="">
+</p><p id="fc4eff89-53b2-47cc-bd0c-69bef0b9b9b6" class="">大哥你学软件，你学他有啥用啊？</p><p id="ee115286-4c03-4230-b42b-505eca562bbb" class="">瞥一眼铺天盖地的教程、培训班广告，信息技术似乎无限美好。但回头一想，好像也没那么好。所以我们就先谈谈信息技术的必要性，明确学习技术的原动力。主要是和“传统技术”进行二元比较，看一看：</p><p id="5c6f0459-35fe-42b2-a34e-c43c38258425" class="">
+</p><p id="58785099-be42-4fed-805e-48c262627221" class="">信息技术有哪些明显的优势，是否是必要的</p><p id="822f653b-9474-4dfe-b3bc-08c8f565b3c6" class="">有哪些劣势，或者未能体现的优势，问题出在哪儿？</p><p id="3b1ced92-4d52-4125-bf7d-a09250955fae" class="">能解决什么问题，会出现哪些新的问题</p><p id="df302649-5074-4e63-bb5e-b5afc2ac56ae" class="">我就是不想学信息技术，行不行？</p><p id="a266dd7f-5d42-48c0-b4b3-72359ba8a696" class="">
+</p><hr id="8d463880-6998-4540-97c6-3285b61d3fef"/><hr id="4300612e-6dfd-4c3e-9dd0-d85e68aa1d16"/><p id="a422337f-ff85-4086-92c6-c00a54b2bbfb" class="">
+</p><h2 id="e3c9a7e4-05f7-46aa-a08f-dc0cc7aee840" class="">3.1.1 多元审美</h2><p id="f54d2907-ee22-4abd-9657-fe5902101460" class="">从设计创意出发</p><h3 id="338dc4f6-a138-4f53-ae70-9f402b7c8432" class="">从参数化设计说起</h3><p id="e51db5d8-ffab-4286-8da2-87e4f3ede8a7" class="">常规审美，特异化审美，参数化风格。在参数化设计出现初期，这种技术方法和风格还具有一定的绑定方式，即通过这种方法可以设计出一种特定风格的东西。但当参数化设计风格不再新鲜之时，这种技术的意义也就局限于，在实现这种风格时能有更高的效率，而非审美层面的创新了。</p><p id="0660cced-692c-4d81-9f55-f21a54c2c8f1" class="">炫酷与自由：数字化风格”的项目之所以建成了是因为内在和外在统一了，有需求，有说法。数字技术并不足够起到决定性作用，所以不用担心技术对多元化的影响。但对于每一个项目都要警惕炫酷的应用需求与消费主义的陷阱。</p><p id="54325f3f-2286-4dd0-b9ef-3141bff732c7" class="">
+</p><h3 id="11cba34a-84b1-4fd6-8cd1-9fb6d8ba9704" class="">解放更多可能性</h3><ul id="2a48acf1-5b82-426c-a41b-f739d70f0d18" class="bulleted-list"><li style="list-style-type:disc">随机设计</li></ul><p id="a238a887-28df-4f2c-86a1-d027afb003e6" class="">生成式设计对未知领域的探索、AI设计</p><p id="6fac5136-108a-427e-b2ba-a89e3d903f05" class="">
+</p><ul id="b831887d-97ed-46f8-83df-4c717fe17652" class="bulleted-list"><li style="list-style-type:disc">仿生景观</li></ul><p id="486cb1d5-a58e-4c6b-ab3e-37df613ff7de" class="">现实审美的演变</p><p id="9b0fa86f-2900-4b1a-9add-34968445872c" class="">
+</p><ul id="f45deb23-0c87-43c1-95c4-9681376343e3" class="bulleted-list"><li style="list-style-type:disc">沉浸体验</li></ul><p id="af1d2cd8-1afa-4d2f-a167-dd9f122441cb" class="">VR、AR、MR、元宇宙</p><p id="8c1673ba-4ae4-4650-bccb-a4f9e71a3efc" class="">
+</p><h3 id="df1b5898-925a-4332-b77f-220b45bd353f" class="">审美的现实意义</h3><p id="080baa3c-9fa9-439c-ad6f-e3ca5f75b012" class="">审美的需求是没有上下和下限的</p><p id="2dcd61a4-351d-41a9-827d-d83782e7a4c5" class="">个人审美，大众审美</p><p id="68251142-b21d-4d51-92ca-70c973ae835f" class="">从下限来讲，有一块场地，大家就能用</p><p id="34e1f40c-84cf-489d-910b-51b5d3b08224" class="">从上限来讲，有主导话语权的人让你改一百次也是改（就这一条就足够把效率的事情等效消纳掉）</p><p id="4489a77d-6009-4720-9837-22714ae29f5b" class="">审美需求的升级</p><p id="bb9d8b99-4bb7-4d7d-a501-91cd64e0d149" class="">
+</p><hr id="4c9f1552-fc6e-46de-9325-6b04377be27e"/><hr id="6864259b-6c6b-4586-a761-4c426ff6ed66"/><p id="9c841163-9c07-4ba5-81e5-3850ea612fcc" class="">
+</p><h2 id="970d9fe0-6ddd-4aa0-bf0d-2a9ba319f96e" class="">3.1.2 理性定量</h2><h3 id="bc45c744-b3aa-429c-95da-fbb2fe3b2ca1" class="">从评估分析说起</h3><p id="7a45af07-5fa5-45e3-96f3-5defd544f8bf" class="">GIS，地理设计切入</p><p id="c84ce240-887a-4528-8bd2-aa20a06988c3" class="">评估分析起作用的时候，正面</p><p id="f64a3ee0-13f8-4ebb-a325-346e8e7e391d" class="">软科学到硬科学</p><p id="eb3c4485-7ce5-4079-9aef-da5a8336ae83" class="">核心竞争力</p><p id="bd387a55-f2d2-4306-9e00-5a11513cf763" class="">科学性，和前沿发展趋势的衔接</p><p id="cd840126-53ec-4968-9da0-9cbbaf77f216" class="">
+</p><h3 id="c2e881bc-6689-4592-a676-44b7841971b0" class="">分析成果的传导</h3><ul id="2e69c9ad-a70a-4b14-b643-45defa9a1df6" class="bulleted-list"><li style="list-style-type:disc">跨尺度传导问题</li></ul><p id="e7510480-a133-4759-87b8-5e55358ff493" class="">规划领域、地理设计领域的定量逻辑</p><p id="f30eae29-e064-4d1e-93aa-227c20874619" class="">宏观到微观</p><p id="9d189252-6c6a-42b5-800e-28619354039b" class="">向工程建造尺度的传达问题</p><p id="05ff008f-d6aa-4821-ac7f-1d6244879b31" class="">同样的分析结果，放到不同尺度下，是否还具有指导意义</p><p id="5ea8425c-e07b-40fb-b713-3cc8418804e6" class="">是否还能形成有意义的结论</p><p id="780eaa26-4c6d-43ae-828d-f9515cd4444d" class="">是否能够闭环</p><p id="eb97cd11-a578-4e44-a4c6-3f7976e59dac" class="">
+</p><ul id="66280df0-69b3-426b-bbb6-e7c59253c0fc" class="bulleted-list"><li style="list-style-type:disc">分析结果向决策的传导问题</li></ul><p id="2f945c17-fdd6-48cc-8991-a752773bba19" class="">“定性”和“定量“的边界</p><p id="b58f0679-26b9-4840-89fc-d080c1d1b92d" class="">正如本书感性和理性的分工</p><p id="73696caf-9fbd-4bdc-ad20-2ffdc0ee0f1e" class="">
+</p><h3 id="669d522b-97d5-46b9-9c85-232ce4267f7a" class="">理性定量的局限</h3><ul id="a27ba7a5-4094-42d8-8944-3fe4bcfd01a2" class="bulleted-list"><li style="list-style-type:disc">数量级问题</li></ul><p id="d503841b-efb3-422c-8652-1c8e938aa105" class="">碳汇计算的小头</p><p id="5c0bbc13-ab59-42b2-9177-41495c276b74" class="">工程造价的小头</p><p id="8779769c-9587-4707-b74b-a81fcf040a05" class="">大工作量解决不了大问题</p><ul id="7929a67f-ec9c-4dd7-92b2-e0d90e5cc42f" class="bulleted-list"><li style="list-style-type:disc">开放性问题</li></ul><p id="7968cb6a-2bea-4d00-848d-257e80089c2a" class="">开放复杂系统，没有绝对的定量</p><ul id="598f9bad-bb11-443d-a73e-34b14d32a129" class="bulleted-list"><li style="list-style-type:disc">无法量化的问题</li></ul><p id="bf9d11d2-e15e-4321-98bd-3fdb314484d2" class="">审美是无法量化的</p><p id="e9febe8c-a171-4f94-a20c-d458c66d2c0c" class="">
+</p><hr id="6f1b6f6e-23df-4324-9eae-d46cdcdbfacd"/><hr id="4980e9fc-5dc7-46f3-ba80-facd6831cf95"/><p id="07285481-bd2a-4327-9068-169d6ebd71be" class="">
+</p><h2 id="578f4aff-1e44-4221-acf8-3c5177c6b847" class="">3.1.3 高效精确</h2><h3 id="27d30858-ceff-4485-9c42-1e91795a3782" class="">“懒惰”的力量</h3><p id="e92a55ba-ccf6-4649-b03b-433823c485d1" class="">都说懒惰是推动科学发展的原动力</p><p id="32b8c85d-72c2-42c5-a4c0-605c91bab8b1" class="">我们学习信息化技术，肯定是想要提高效率，优化体验，减少枯燥，解放双手和大脑，体现为以下几个方面</p><p id="598dbbee-7e31-472b-be26-dbf966ca4514" class="">降低人工成本，解放思路去关注方案推敲，<strong>拓宽设计的可能性。</strong></p><ul id="4fa6c824-6241-4d82-b09e-112110774bec" class="bulleted-list"><li style="list-style-type:disc">创建的效率和精确性</li></ul><p id="644294b7-732f-463d-9972-74b6763608af" class=""><a href="notion://www.notion.so/f77655f8d4df4a5381a6e24cd9780d20#_%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92">人机交互</a></p><ul id="69409d19-b049-4eed-9549-fbe0b8da8fda" class="bulleted-list"><li style="list-style-type:disc">传达的效率和精确性</li></ul><p id="9623306b-8def-4ad0-b300-46079f802d2f" class=""><a href="notion://www.notion.so/f77655f8d4df4a5381a6e24cd9780d20#_%E5%8D%8F%E5%90%8C%E4%BA%A4%E4%BB%98">协同交付</a></p><p id="4eb532ee-45de-46c1-92b7-9c547b6eef8a" class="">
+</p><h3 id="d6f60fdd-c96e-4a4b-8487-4e98e8c752a1" class="">无处不在的容差</h3><p id="3c8bd0fd-bebd-47a3-a966-491266b450ba" class="">容差</p><ul id="b25b776a-d499-4ace-af68-b5e9297249cc" class="bulleted-list"><li style="list-style-type:disc">度量单位的容差</li></ul><p id="17151b59-8d29-4a58-bb27-5eacdc8505aa" class="">园林工程不是造精密仪器，也不是造飞机大炮、修大桥</p><p id="4d014d79-960d-4ba4-b449-0ed6a63d9023" class="">顶多是不好看，很少会要人命</p><p id="8c561ac0-b303-4f6b-b567-ae2e4e148136" class="">有时候模数取整纯粹是为了满足个人强迫症</p><p id="436475c6-e9da-42c5-b4c4-870599e4a94c" class="">也并不存在绝对的弧线或者nurbs曲线</p><p id="51d93673-8f93-4c71-ac80-816f27473cc0" class="">吐槽一下线形标注的事儿</p><ul id="b1aa857c-0390-4a61-bcdb-d16477dcd82d" class="bulleted-list"><li style="list-style-type:disc">工作组织的容差</li></ul><p id="5e5b144d-4d7e-42e8-93df-7e9dd392d15d" class="">很多效率上的事情，被工作组织问题给盖过去了</p><p id="45104c8a-e9b4-487b-a2fa-8d6546b10755" class="">工作流、信息流，一旦断开，就比不过靠口头沟通、去解决人的问题的传统工作方法</p><p id="56261241-57ba-4ffd-b2bb-21834732f45c" class="">
+</p><h3 id="965b23a7-e5e5-407c-9a69-d85505373f93" class="">偷懒美梦终难成</h3><p id="8ee5a523-2548-479f-8747-ffea397803de" class="">向下兼容的问题</p><p id="01254958-9c7f-49fa-8153-87c57fb26fe2" class="">图纸效力的问题</p><p id="330587b4-064f-43ac-8fb7-2de6d64f5dd6" class="">应用环境，团队的问题</p><p id="41ea38ce-da7f-41c4-be7a-4747ab0cf619" class="">
+</p><p id="1dfc4501-a0b8-4b28-bae2-b42e928d0724" class="">
+</p><hr id="70962ec0-fe5b-4638-9327-0e6bbef1c1b1"/><hr id="eb20164c-f79d-42ac-a7cd-6cab95ceca9c"/><p id="f4199587-0309-4e87-9ec3-bb7a5c669ed2" class="">
+</p><h2 id="1f41e844-26ff-412a-bce2-c96f8968ee9c" class="">3.1.4 小结：必要性和等效性</h2><p id="0b3aa9e2-33d4-40f0-8282-d802b1fd2022" class="">信息技术和传统方法的等效性</p><p id="70c75b8a-31e1-47e0-9d08-e96f994141b2" class="">实际情况下，现实压力下</p><p id="1fc2c494-717c-4d73-be53-8ea289b914c8" class="">信息技术并未体现出非常高的必要性</p><p id="bed712f3-934b-4176-a98e-b91876f1c5b3" class="">有太多的平替</p><p id="b04399c6-656d-45e1-ad49-e80ffc405fef" class="">所以会叫好不叫座</p><p id="2b574eeb-2666-48da-9a21-ce964bb5f575" class="">新技术的必要性</p><p id="de70d5e1-493f-4daa-b488-888965658ae5" class="">传统技术对于新技术</p><p id="31c0e3f5-af21-4d55-b309-0da2bae7148d" class="">是否属于劣币驱逐良币</p><p id="727d8d53-97e5-4cc4-b434-2b62f39725f5" class="">
+</p><p id="9b55e4e4-7287-42d1-9dd0-f5ecaf741215" class="">
+</p><hr id="edee2c3c-a7c3-485f-b411-27f4a75bedce"/><p id="3c577bc4-65f0-433f-a355-78b50798bdba" class="">
+</p><h1 id="bd3612ae-0670-432f-9963-6fa4a2c9880d" class="">3.2 我们需要信息化设计么?（需求导向）</h1><p id="e4b3dd8b-e69f-4599-994e-e6a1e6aa3b2f" class="">
+</p><p id="eb5a94eb-752e-4591-a945-dd46981c96ef" class="">如何实现愿景？</p><p id="5ab2e0ee-034d-4a9a-ae3c-fa7f93e4dccb" class="">为什么要学？</p><p id="2d089f6a-9fc4-429c-abae-82fb23fe9c71" class="">为什么要推广？</p><p id="db6e47f2-63d3-4d2e-bb00-8cbcaca92592" class="">为什么要改变？</p><p id="2b7bb645-4260-4ce7-87db-1d3657519650" class="">为什么叫好不叫座？</p><p id="dc6ae5d3-cc13-4afb-8ca5-7f842ec00081" class="">推动力</p><p id="0b4f9dbb-ea02-4f74-85fe-b44ae36f355b" class="">新的领域没需求？</p><p id="08801919-7eac-431f-a08e-31f53d4c0c5c" class="">传统领域有平替？</p><p id="75bdda0f-b0c9-48c1-8006-eafaa53a8258" class="">在发现学软件、学编程并不能解决问题的时候</p><p id="c685474a-5373-4628-9166-1891c728d665" class="">把目光转向了通识领域的规律，经济学、产品经理……</p><p id="9f8088b5-b9c6-4eda-bf83-88205b2b5613" class="">有没有可能用数学模型、经济学的思维，对学习成本、学习意愿、学习收益、以及技术壁垒、语境进行分析？ 生产关系，生产力</p><p id="393531a2-70ec-4474-aab8-099f7a018b37" class="">
+</p><hr id="f5f046f0-9dd6-4c1c-bad6-ddb2763baed0"/><hr id="cb80e5fe-ec04-4ded-a102-5b7912bb818f"/><p id="fc054797-54ed-48cc-8b08-93ef485226c5" class="">
+</p><p id="5eb37246-b102-4328-b106-021d0f9a4a4f" class="">
+</p><h2 id="9c14e466-81dd-4e23-a5df-f6a227eb1c73" class="">3.2.1 不同层次的需求和困境</h2><p id="e28e4e79-cba0-45b0-ac8d-8757ee2de282" class="">2.1主要是针对三个层次，分析整体到局部不同层次的需求，预期</p><p id="d0c07e8e-d969-4499-a0e7-45e8deef34f4" class="">各层次之间互相作为内因和外因的关系？（设计院在行业视角下怎么选择，设计师个体该怎么选择）</p><p id="8f310e0c-d5fb-4f9b-91e1-7d70fd21cce1" class="">正向：需求导向，推动因素</p><p id="5eafaa93-6ae9-45c9-ae31-a65eec412f93" class="">反向：阻碍的内因和外因</p><p id="0c2c3a43-61eb-4930-9403-167cb846d720" class="">2.2~2.4结合信息技术的分析：（审美，科学，高效精确）✖三个层次</p><p id="b9f2a2ac-7cf6-474e-9b4e-4cb93e929e20" class="">内容分配还需推敲，是总分的关系，还是正、反并列分配的关系</p><h3 id="14040169-877e-4f71-b8ec-d714f81ff97f" class="">微观：个人</h3><p id="68ca6169-9603-4d55-9334-517621466ea5" class="">个人和环境的割裂问题</p><p id="89a75159-1700-48ea-9ee1-325e620ac946" class="">自私的问题，分内分外的问题，信息差的问题</p><p id="e680c9c3-a958-48f8-a9d6-28de56e171a5" class="">从业者个体角度，教育领域的供给优化，规划建设从业者整体素质的提升，但个人选择还是收到行业格局影响，现在这种形式看来并不能作为主导途径</p><h3 id="79110889-77f3-4ffa-94cc-b01816659921" class="">中观：团队到单位</h3><p id="cc1f0790-290f-4060-ac8d-9bce0e17e5f0" class="">项目组织习惯的问题</p><p id="933107f1-687a-4e59-b048-16c9eb6c6ba5" class="">笔者目前关注中观层次的普及问题，已经碰的头破血流</p><p id="cf36e7f5-b0d9-4f9f-9d67-4d8bcaeb489a" class="">管理层面上的分工优化，充分发挥设计大师（审美）、技术大神（效率）、科研力量（科学性）的相对比较优势，各司其职，不要各个梯队都搞扁平化的全才去一把抓</p><h3 id="df758b23-b06d-4c0e-a976-24a3bb9a166a" class="">宏观：行业</h3><p id="b236dbf1-d219-46cd-93f8-b25131ca11c8" class="">技术突破带来更大层面的社会变革，比如某个行业或法律上解决了AI的置信度和权责问题，行业只能被动承受（类比工业革命）</p><p id="b33e6148-8dee-4b43-a26c-bdd5542abd66" class="">这都不是一种技术、一本标准、几家单位能解决的事情</p><p id="131538fa-8ff6-4042-823d-3258986808f3" class="">近期来讲，只能是抛砖引玉，引发思考。远期还需要很多学术方面、政策方面的东西。大家共同参与。</p><p id="6b6a8cea-65c5-4af8-b1ca-6197a661b3d1" class="">
+</p><hr id="abc559f3-04f5-4834-9d3c-5e9ae7a845ac"/><hr id="912bed3d-4e97-44b8-bf55-1e7856f4d7bd"/><p id="ed36e2e1-538e-4156-ab85-bb355a2ed0bb" class="">
+</p><h2 id="f5914a2b-9376-448d-91c4-0a51bcfb75b3" class="">3.2.2 微观层次：要不要学习</h2><p id="a1ed2c42-c171-43e8-998e-25bc6cbdf871" class="">个人角度</p><h3 id="2d20ee27-b91f-439e-be4f-07255f1e589e" class="">个人的审美创造</h3><p id="736764fc-97e9-4b80-a243-1a7a9e43d68d" class="">设计风格的问题</p><p id="8dc7d46b-0bac-4608-977e-88ef995b0729" class="">你有没有发挥个人审美的空间</p><p id="c8e8ecdc-d45c-4e05-89fe-b0f76ab18d1e" class="">信息技术去驱动审美本身就是有争议的</p><p id="f1dcde4e-aa83-4150-8033-14a03ce78181" class="">而且是触及行业核心，或者触及某些群体的话语权的</p><h3 id="af747fb6-103c-4c28-832f-15002c59aa09" class="">个人的理性决策</h3><p id="1a085842-dc55-473c-870a-40cb8fae9d40" class="">能给自己一个解释</p><p id="44457fcc-a477-4c7c-8d0a-bd8bc36cb558" class="">但对整个项目的运转可能没什么作用</p><p id="29e3aef0-e349-4724-8bfa-cef5438d71f8" class="">最后还是会编程画分析图做包装</p><p id="f5710164-3986-4e40-b7bf-d663e54acd05" class="">然后看甲方领导的意见来</p><h3 id="5afde5b1-c7a9-4f55-acad-ea6ce93e0160" class="">个人的效率</h3><p id="9a6e390a-7742-46b8-9e40-a42777d65062" class="">考虑信息差的问题，除了所有人都不知道你会用这个技术</p><p id="c1607b62-2fac-40b5-93bd-8742b18ef676" class="">你用十分之一的事件做完之后，就下班了？还是花时间去做其他事情？</p><p id="86905a49-7ef3-4c3e-90c3-1c9900b68390" class="">
+</p><h3 id="b1629947-7f06-4068-9d4d-003e5884582b" class="">理性人考虑边际值？</h3><p id="29a45f03-fa04-4328-b662-9a0054090431" class="">个人层面最大的问题，就是你不是一个独立的设计大师</p><p id="c59e1545-22f7-4de1-8756-8b1c6ca20d2c" class="">而是被置于一个宏观环境下的打工人</p><p id="8219f4a0-6955-4048-9b24-8b520012ed4f" class="">激励机制的问题，选择传统方法总是高于学习新方法？新方法投产比太低？长期不够长，而且总有重置机制，所以总会无志人常立志</p><p id="7fe5fe7e-f6b2-42ab-866f-2fbd3ea0d677" class="">个人不能去承担团队或行业的改变成本</p><p id="5b7b8a0a-1c98-4931-b3a3-71e17df31c8b" class="">
+</p><hr id="8614bc68-48e3-49a6-9ed6-5d552b548a55"/><hr id="af773a72-c9ee-4404-8ed0-b8bf7842c881"/><p id="b2911587-8338-4e9b-b1e7-b1b72426241c" class="">
+</p><h2 id="3ce32f4b-b48c-4c3f-8695-df1e3019ac5d" class="">3.2.3 中观层次：要不要普及？</h2><p id="d1a90413-88d5-42f1-9a61-0f61e5c7a64a" class="">假设你是一个团队的管理者</p><p id="3b932a97-c7ac-49f6-b68f-d2e6d0c91fd6" class="">来决策是否要在团队内普及信息化技术</p><p id="197af668-7052-4afb-a786-5405620d0007" class="">从团队到单位，项目组，业务所室，设计院，事务所？</p><h3 id="68f2a5ba-9511-4e6c-9531-a435e8a04e15" class="">团队的审美</h3><p id="f2d4283e-fbec-4771-9b9a-b77919e4f743" class="">个人层面的问题同样存在</p><p id="66983035-b377-40f6-8448-5e16233bf91e" class="">但团队的风格比个人的风格更立得住</p><p id="08ded768-f24f-41f0-8632-0ff7180d413b" class="">有一些信息化技术可以有助于形成品控，形成统一的风格</p><p id="a1f7968a-fc81-4b3b-bc43-8d2846260d24" class="">但审美总是掌握在少数人的手里</p><p id="234e5520-6008-4008-99ee-422fda92f9fc" class="">全员普及信息化，对于审美的帮助不大</p><h3 id="56947ae3-b0cc-485f-ae80-8cf67a7df173" class="">团队的科学性</h3><p id="0e798398-173a-43bc-b535-d2897cb3e9ff" class="">个人层面的问题同样存在</p><p id="51765d2d-58b0-4ef0-8d9f-c73e5e8e7e28" class="">如果只是一个人会，那么不好融入工作流</p><p id="e50bdeb4-5b7e-48ba-9ea9-7efaea43d28c" class="">如果都普及了，成本问题，投产比问题</p><p id="24d61e8a-1a87-4025-8ebd-d473f15f3cd1" class="">但区别在于如果团队内达成一致，话语权能大一些</p><p id="5d128c0c-0fe1-4541-96cf-4158dbb0f8dc" class="">但还是改变不了宏观的问题</p><h3 id="fb42380e-d68f-4692-a88f-94c6ad0667d2" class="">团队的效率（重点）</h3><p id="7f3fd791-36a1-4bd9-875d-9df75fdf58ca" class="">几种决策</p><p id="bef59545-87cd-45b3-a343-abb58a762b30" class="">一种是精简人才，少数人用高技术干大事儿</p><p id="e659bbf7-a070-4198-b327-1f0b4522a403" class="">第二种是维持平衡</p><p id="54023fcc-71ec-49f4-a77b-324915416ec7" class="">第三种是劣币驱逐良币</p><p id="6066dbdc-7f47-4136-afdb-1abcf0711703" class="">光脚的不怕穿鞋的</p><p id="bc196b00-4a21-4807-83f4-f29012b710e8" class="">存在生产关系限制生产力的情况，所以很多技术想法没法直接用很正常</p><h3 id="e74387c0-3ab9-4a6f-ac3d-3c151218ab00" class="">光脚的不怕穿鞋的</h3><p id="5e0634cf-3dce-494b-b564-0be5d818e91f" class="">只要保证整个大环境、烂摊子只他妈的适应传统方法</p><p id="623dee37-9244-4e77-9b6c-342d5a6f1baa" class="">所有信息技术都要向下兼容</p><p id="0a7076fc-6b88-40be-bcf4-77ae0ed60e76" class="">那就没个好</p><p id="bd6daa37-7f12-4aa0-b0ee-88e11eccc312" class="">大家一起不学不练</p><p id="7ebe2130-4d0c-4121-9dbc-0b8cf951d367" class="">一起加班</p><p id="489070a7-a262-4e10-b766-35531dc6e655" class="">卷卷卷</p><p id="1f88bcd4-f77b-496b-87fe-0663aee147a6" class="">即使不学新技术</p><p id="b0f993cb-c4c7-47c6-b610-29aa282ba540" class="">不去迎合新技术的要求</p><p id="1756ec2a-baba-4800-9cda-d7d46a144b33" class="">也不影响项目的运作</p><p id="7b0bdbae-f9f4-4b10-80c1-f449e9ef2286" class="">
+</p><hr id="48bbfc30-9b74-4068-a9c6-fcb904c670e3"/><hr id="a0503025-1903-481b-8cbd-9c3eb81a0a36"/><p id="7e8fc375-6929-4f64-a8ab-1e4b8ce6d696" class="">
+</p><h2 id="a878112d-da3b-404f-8dbe-8fec7efb4d6d" class="">3.2.4 宏观层次：要不要发展</h2><p id="7cf370d7-3be8-4aaa-b666-b8473502ba1c" class="">从单位到行业</p><h3 id="b4d50a29-5c4d-4d9e-a170-d92af7287582" class=""> 宏观的审美</h3><p id="70e4ea1f-4fde-4d16-9cf9-7d7a64d9f594" class="">
+</p><p id="43f8a438-e761-43f7-83cc-a81c9d5bbe0e" class="">
+</p><h3 id="1a05582b-3358-45be-be13-9de34edde7cd" class="">宏观的科学理性</h3><p id="40a2ea48-7369-47d1-b73c-54a61f6cefa8" class="">数据权力？(《置身事内》中提到的复杂信息）</p><p id="19bea499-b3df-46d6-9ee6-33ecba8fe13a" class="">政府对数据权力的诉求</p><p id="739f5ca4-4ec2-4783-82b7-a411bcdfd691" class="">数据资产数据效率</p><p id="f1794b7e-8b31-4539-bad9-a89792223b7c" class="">
+</p><h3 id="d2bba4e5-eb2a-4c67-aa66-7a75fbce31d6" class="">宏观的市场和效率</h3><p id="62090a24-e52b-474d-8e11-fe5bb32560e0" class="">科学发展的核心动力。</p><p id="e930dd43-7bf9-4375-8cda-9576564c3b5c" class="">但从市场供需关系的角度来讲，效率提升在近期并不能解决任何问题。微观来讲，掌握一门新技术也没法让你在实际项目中无往不利。</p><p id="62ac4055-3ad8-4ea5-9e24-cf9c5789f744" class="">提升效率到底有没有用？</p><p id="2ab189ed-e0b2-457e-8d8f-5f2ae7a5945d" class="">从“图纸打补丁”到photoshop，再到参数化设计+ai渲染</p><p id="66a3da45-cc60-445e-b22a-ba7b53e35871" class="">有价值才能推进普及，提到新技术，最直观的价值往往是效率。</p><p id="d2cefd84-8e73-43fe-85fb-69a4ea5aad2b" class="">
+</p><ul id="cc90144e-365e-4073-b35c-31fb8c533ba5" class="bulleted-list"><li style="list-style-type:disc">效率与市场供需</li></ul><p id="80d10b7c-4d80-429e-a95a-9ac753bb31b7" class="">信息模型技术很大的价值就是效率（容错，修改成本，沟通成本都属于效率范畴）</p><p id="ab33fda1-47e7-477e-a871-c06fd930e14f" class="">但在上述分析的背景下，全行业各环节一起提升效率的激励程度不高，所以不好推广</p><p id="a49a0282-06da-4dbc-8f04-539401414638" class="">但长远角度，蛋糕变大了，效率的提升才有意义</p><p id="35d77143-8f79-4685-98c6-a9b4d1773735" class="">造成困境的经济学原理？</p><p id="41c20206-d0ff-4d27-a160-ca3b0df0f8bb" class="">要解释为什么即使能够简单地提升效率，行业也不会改变的问题</p><p id="beb20c1e-66ce-455b-855d-e483e08133d8" class="">经济学原理中，农业技术的发展不一定给农民带来好处。除非从社会行业结构的角度，把从业者的转行和社会整体从业结构优化考虑进去。也就是说，单一影响因素下，技术的发展会造成从业者规模的减少。很好理解，大家常说的“AI”把你取代的玩笑就是这个道理。如果一个没受过专业教育的人就能用高度产品化的软件去完成整套方案，那设计师的性价比就显得很低了。</p><p id="c26ad48c-f26c-4f74-bf4f-b601e9fa853d" class="">仅从技术提升效率的角度来看，成本的降低会造成总收入的下降，长期来讲就是行业规模缩减，技术把人替代</p><p id="052b31e1-bf1b-43bf-8e14-a82efe165cae" class="">
+</p><ul id="e178b72c-8388-4b04-abf7-9b60d0eeebf7" class="bulleted-list"><li style="list-style-type:disc">设计成果过剩</li></ul><p id="0c6eb21d-bfd5-4ca5-917b-5c409ee37d67" class="">过剩：直觉上讲，很多人觉得计费标准是在控制价格上涨，但在“技术使成本降低”的语境下，计费标准造成的结果是“设计成果过剩”，最终就是没有十个项目给你做，但是可以让你把一个项目折腾十遍。</p><p id="239aa996-846d-41b1-b689-f50ab7e44460" class="">计费标准限制的保护性措施，加上技术革新，最后只会导致设计产品过剩。谁能想到，20年前的计费标准，其实是为了保护20年后的你不被AI淘汰。</p><p id="6f722b62-3781-40bc-bce7-96ef35da5437" class="">除了技术发展之外，还要考虑整体的行业下行。</p><p id="fb9823cb-d54c-49db-b7bd-9acaaad8088c" class="">计费标准在这里其实是作为保护性措施，是防止前一种情况出现的减速带。但效率提升和计费限制会带来设计成果的过剩，简单来说就是即使你效率提升十倍，也不会有十个项目来给你做，只能让你把一个项目改十遍</p><p id="f9dfa44b-2de1-4cde-804b-f1b1d6b58031" class="">
+</p><ul id="1bad6287-024c-474f-a64e-304925c10cc5" class="bulleted-list"><li style="list-style-type:disc">设计费</li></ul><p id="f2dc3b24-90e9-4827-86ec-60a5dff2a6c1" class="">应对行业下行，提升设计效率，降低设计价格，似乎会是保持项目数量的一种途径（但这时整体的蛋糕仍然在变小。</p><p id="8d65c03e-85b1-48c2-bfae-20cc23b2d36f" class="">当然市场规模，或者说项目多少还受到很多外部因素影响，集中体现为需求下降</p><p id="6f6189a3-fe12-42e1-bfe7-13585784001b" class="">而且还可能有更加强制的外部因素来限制项目的数量</p><p id="60f948a2-fe4e-4a0a-8486-7dba9c05cd95" class="">所以说技术发展，效率提升，也解决不了宏观问题</p><p id="fb6c3d0c-b70e-481c-b330-a342168d88ad" class="">但很多外部强制因素导致即使设计的价格降低了，业主的消费数量，也就是项目数量也不会增加，而且多出来的购买力并不会流入设计师的口袋</p><p id="fb88db7f-e287-4ec6-a562-fc709899859f" class="">效率提高是可以降低成本，但社会信息都是公开透明的，竞争也是存在的，这个平衡点谁都清楚</p><p id="86347ecd-c032-42a4-9021-c8e6e6d54e9e" class="">会让你通过设计费打折的方式吐出来</p><p id="b80ce8bf-1947-4546-9169-71df46a1ff3a" class="">大家用更低的价格做着更少的项目</p><p id="cbbb84ce-54b6-4150-9d92-fc60ab036db1" class="">此外还要考虑成本的模糊性，也就是前面讨论的新技术对效率影响的间接性，以及人们超乎想象的内卷和吃苦耐劳精神</p><p id="67bf8a46-d3f4-47ff-a674-a12e7cce177f" class="">但实际上越卷越没用！！！</p><p id="f4d6952b-595a-4aee-91b0-6a38b123d2f8" class="">房地产和市政工程都是收到政策影响较大的行业，政策导向对项目数量有强制影响。当政策对项目数量限制时，意愿大于数量限制，单位购买力高于对应数量下的成本，但高出来的这部分也并不会给设计师（打折之类形式？），会按照平衡点的预期价格，做着更少量的项目。</p><p id="69d92c7a-599f-466a-a49f-12aecc60065f" class="">业主省下来的前被协调到其他公共领域。</p><p id="c8ca6557-bab9-49b8-8b79-e1c901c69868" class="">
+</p><ul id="46af4bab-51aa-4f82-8355-06c09bb2f4f5" class="bulleted-list"><li style="list-style-type:disc">百万漕工衣食所依</li></ul><p id="491215f0-0f05-4c56-9328-926867ef235e" class="">以BIM为代表</p><p id="609516c2-2215-4eb9-a449-70c6fa9ea137" class="">为什么不能推广</p><p id="4038a47e-cde8-45e2-894a-07507371c9f8" class="">就是广大从业者保持光脚的不怕穿鞋的状态</p><p id="ef087492-a8d7-4fda-8138-073528efe841" class="">这样就不会被替代</p><p id="95c84015-e745-4618-877a-199499b97477" class="">新技术产生的新领域，宁愿单项地切出去（BIM翻模）</p><p id="7a0c35c1-64e1-41c7-b5d0-147302685093" class="">也不愿意真正融入业务的核心部分</p><p id="da1bb17d-1fd0-439d-9421-0f0067766360" class="">如果强行倒逼</p><p id="3f0468db-4d9d-4379-a50f-c8d0b16e846e" class="">提高准入门槛</p><p id="6025cef9-53c9-4d9e-ac39-80ef8c53954e" class="">会造成很多人没法参与</p><p id="097152a5-1e16-4596-ba20-cd14f82a7e58" class="">
+</p><hr id="40d81a4e-7975-4c6b-b3ea-474fb8228b43"/><hr id="e8a58431-7d23-40af-b9ac-52ff76134bfe"/><p id="7f57f085-7ce9-48e3-93e1-7b7bebf5c3d4" class="">
+</p><h2 id="060c3ee6-c320-4a98-b67a-bfca29bbd5b5" class="">3.2.5 需求导向小结</h2><p id="b0b794f6-71d1-418c-8406-94503e5bce96" class="">需求导向和愿景明确的</p><p id="4182eda8-b786-489e-bfed-20652db8df5e" class="">个人学习</p><p id="13b4f52b-dc6f-4346-8d04-2c056c80f70c" class="">团队推广</p><p id="7d2f4d2f-be06-45aa-afbe-7ac3fbcfda38" class="">行业倒逼</p><p id="79ac9ea8-04a1-4327-85f7-9c1d39f8dc11" class="">不明确的，从技术的角度来讲</p><p id="de90ec3b-3b96-4242-bd6a-073c139f36ae" class="">个人学习以应对变化</p><p id="3eea825d-d123-4048-b8a5-5ee208816456" class="">中观层次，储备</p><p id="c42ac763-2db5-4f4c-b660-19a509b0e6da" class="">宏观层次……</p><p id="ca3cd7cc-95aa-48ca-adcf-7406b43bab3a" class="">复杂的系统性问题无法解决</p><p id="24b8f211-9fc5-47fa-b94f-05ac4c1d9290" class="">近期</p><p id="850eb18a-f0d5-45cd-bd09-e5c5c333ae5c" class="">技术发展不能直接解决问题</p><p id="dca1944c-f1f4-4bcc-aebe-dbdd882c8e93" class="">但是是必要的储备</p><p id="56b93502-900a-4ea3-9cbd-07696e753184" class="">有难以改变的外部力量，但对于必要性的问题，应该在合适的技术层次进行低技术积累？</p><p id="28323cba-4a55-48ad-8147-6e92e5b7653c" class="">生产关系优化逻辑储备？</p><p id="7825b405-d17b-4921-80f8-f2f4fcff305e" class="">长远来讲</p><p id="407ce3fd-b1f5-4756-9307-72bece93ef5d" class="">整个行业要靠实践领域的拓展（非空间增量拓展，而是存量背景下的）来保持规模或者扩大规模，新增项目类型</p><p id="7d33eb8c-123a-4d02-a370-1f4d335a2df8" class="">这时候的信息技术一方面从侧面提升实践活动的科学性</p><p id="3ba7c469-226e-49c6-b10d-db5016de6fc2" class="">另一方面，也是在市场平衡增长的背景下去提升效率</p><p id="40af020f-8789-4826-bed3-b7936e4c85fb" class="">从市场长期变动的角度，运用高新技术提高科学性、置信度、核心竞争力。保住基本盘，拓展赛道，做大蛋糕才是关键。</p><p id="1b36e3d2-2403-4a3c-8992-47ed69f56d23" class="">但短期来讲，新技术的直接应用会增加准入门槛。蛋糕做不大，就没法只提高门槛，再倒逼也没用。</p><p id="877a5320-7fc0-4e83-b65e-13770351e6da" class="">新技术在这个导向上是中期可以发力的，可能有几种途径？</p><p id="62fa3241-20b3-4cf2-993f-b36847506ddf" class="">
+</p><p id="0b5890fc-0b34-404e-b879-8f0284795e67" class="">
+</p><hr id="d0fb99bf-6e85-4195-afd8-b83aa02d81b8"/><hr id="795d529e-f8ea-442b-9e3c-fb456a666351"/><h1 id="7bae9312-bb97-455d-bf1e-05ec058b5574" class="">3.3 信息化设计的愿景</h1><p id="5ff1977d-ac1d-4a86-b5de-0ea5c91a514b" class="">我们需要什么样的信息化设计？</p><p id="66cf1265-da0f-4a5e-9b69-ebd2f63138b0" class="">
+</p><h2 id="05a5081a-3cba-4b41-bdf1-0ade6c642c70" class="">3.3.1 愿景内涵：突破技术闭环</h2><p id="f6c2af87-20df-47c6-8214-27138499bfcd" class="">
+</p><h3 id="3f7ec62e-c045-4e83-9ce1-d0ff054aa060" class="">二八定律和两个闭环</h3><p id="fbee8cda-3606-4698-b552-142e056b2fd5" class="">理论与实践的二八定律，技术水平及其普及程度的两个维度和四个象限</p><p id="6f2e2250-3668-4e39-a5e9-f652f2a8d804" class="">实践与理论的闭环（项目大表格？辅助证明？）</p><p id="601e258b-c07f-44d8-be23-2e3786128a99" class="">要解释一个为什么新技术无法形成理想应用模式的问题，应该关注哪个层面的技术</p><p id="f81e8d78-cd0a-4daf-8333-41e29295e2e9" class="">常规实践闭环：传统的二维施工图，现有的技术体系过于自洽，新技术的实践应用难免要向下兼容（二维图纸！！！！）</p><p id="611c34ad-98ba-4094-9797-99ab634fe67a" class="">理论研究闭环：行业、项目、团队上的诸多限制，多少有时候不接地气。能衔接上的往往也不是最高、新的部分。</p><p id="7af67b47-17be-4396-b92a-7ed51bfe2594" class="">两个闭环之间存在着交流的阻力，供给和需求无法匹配，当然旧方法的效率也是相对饱和的</p><p id="4b9ebcd9-13ff-4616-a5c6-cca42382d340" class="">就我们目前，只有一些单体、专项上实现了比较理想的LIM应用（算是在平衡点上）</p><p id="a0b35e77-307e-4aa8-aa35-d49a21b218a4" class="">全专业全要素的系统性工作，通过复盘性成果一些技术原型（多少有点难接地气）</p><p id="3ae81a4d-d203-44df-ba95-5b6d30115636" class="">以竖向设计为例：画等高线的方法和特征线建模的方法，即使在比较理想的区域里也存在着信息差和交流阻力</p><p id="c89ea74c-f126-4b81-bd80-a206857903cd" class="">信息差，一方面会成为阻力，一方面也可以成为“忽悠”的切入点，一些人利用信息差，让低水平的项目看起来用了很多高技术，一些人利用信息查让不接地气的技术看起来很普及</p><p id="d8d7104b-4a72-4deb-a1c4-af51ce81e6c9" class="">我们的目标是打通这两个闭环，实现高水平的创新实践</p><p id="596714b3-ad35-4e59-bfc9-f7fb78d77005" class="">达到愿景并非突破上限，而是让整个曲线饱满起来</p><p id="c57d4867-82b8-434c-a130-4fdd8ae5581e" class="">
+</p><h3 id="58ad2ade-29c2-4bdc-a768-6bba13d9915c" class="">微观层面：技术普及</h3><p id="f9ac0dd7-c51c-4294-88dd-d22bf6e97411" class="">引出行业共识、教育等问题</p><p id="45c6de13-63d3-4cfe-8b5e-03207e8500f2" class="">普及的激励机制？价值导向？</p><p id="f6f0fa5e-811d-47e5-9f83-29330d11e8f7" class="">难点：学习成本</p><p id="a367ef46-b2e0-467c-b856-23ebab48f030" class="">对于习惯了传统工作方式的一线从业者，新技术和软件的学习成本很高，而现行BIM软件大多针对性地服务与细分专业，在园林工程中的应用体现出“繁琐的软件规则溢出于使用需求”，从不同软件中“各取所需”又增加了软件数量和协同难度。所以如何用大家熟悉的软件去实现信息化功能，普及信息化工作思路，降低新技术的学习门槛是非常值得思考的问题。</p><p id="ee7da4ed-8ae4-4968-8596-6a764a46e41d" class="">学习成本靠教育和分工解决？</p><p id="8f8acd9f-008e-4b2c-b565-dc28e3177da5" class="">
+</p><h3 id="79b8cef2-aae4-4aaa-bc6a-a07fb6672a44" class="">中观层面：分工优化</h3><p id="beea5840-c7e6-497e-9e56-b60cf80b6fff" class="">合纵连横？</p><p id="0921b5d4-5f0f-4bd2-bc52-cf20f34a215c" class="">合纵，参与施工、咨询、建管等环节的信息化工作，推介本专业的业务逻辑</p><p id="eab75702-f685-4193-8f28-348aebdfa1dd" class="">与协作专业、协作团队相配合，按照相对统一的逻辑和标准输出设计产品</p><p id="5e0fcec8-f4f8-4bfd-be82-e3113f5a7bc9" class="">信息技术部门该以什么形式存在</p><p id="bccf9811-6445-4de1-992c-81b01db2aadb" class="">门槛与学习成本</p><p id="38f36081-bcfe-47fa-ae61-a2571c1c7fc3" class="">分工与比较优势成本</p><p id="ffb13388-9b4c-4d04-8267-631321206210" class="">中观：管理思维，分工，工业化</p><p id="2a3edc3b-3864-42ee-985f-4740f0afa781" class="">引出工业化，面向对象，四个模拟？</p><p id="a3922119-801a-43d0-b9bf-d36474313e87" class="">
+</p><h3 id="e392a0f2-337d-4291-8ee7-4671f3c5a166" class="">宏观层面：行业升级</h3><p id="55fe167d-9068-4a02-8529-577d08015050" class="">1个项目和10个项目的问题</p><p id="8a04f03d-2ff6-4781-884f-61575ce0c41d" class="">从业者规模问题</p><p id="b9f60872-6ead-42d1-8392-f0c5b9a69106" class="">如何突破效率无用论？</p><p id="2a58cb61-f92b-43c6-b6ed-f0ffdc982960" class="">
+</p><hr id="8b5f443a-791b-46a8-9274-84f97c27bd4a"/><hr id="a23310c0-d2ac-4174-84e3-3c3884974337"/><p id="cf06ac95-123b-45ba-bb5a-d351dcf28a22" class="">
+</p><h2 id="3dce72b7-f06e-406a-89be-35847ea2febc" class="">3.3.2 作为工具的技术的发展规律</h2><p id="ac0e087f-cc51-4958-9937-bef4f8f6b0de" class="">
+</p><h3 id="9e67dbd9-21b0-4108-a524-815dfa6124cc" class="">旧理论</h3><p id="89a66aab-ee01-4e94-9a5c-542b71516cce" class="">引导：从【纸笔制图+画法几何+二维图纸+传统设计】到【CAD+画法几何+二维图纸+现行设计】实现了工具效率的改变，但工具的使用方法没有改变，人和工具的交互方式也没有改变，设计行为只存在于人脑的思维中。而近二十年技术的蓬勃发展，使得这一格局变成了【多种软硬件+数字景观技术+多维数据与信息交互+设计】，效率大幅提高，带来各种可能性，而且工具越来越介入到“设计行为”之中。</p><ul id="aba6b882-3f23-4b86-94c3-5e14eb8778b8" class="bulleted-list"><li style="list-style-type:disc">系统（工具和实践活动中其他部分的关系）</li></ul><p id="e71f4545-43c9-4486-a1ba-af4ccfba0197" class="">方法、工具、应用场景三大子系统，共同构成专业知识系统。这一系统在应对技术推进与来自外部系统的实践需求导向时，体现出协同<strong>（这个协同是旧的理解）</strong>效应，实现系统的变化、迭代与升级进化，实现更高层次的实践。</p><ul id="4eb3a404-2901-42e6-a45e-7a54466651ca" class="bulleted-list"><li style="list-style-type:disc">交互（人的作用，并非后文谈论的具体的交互，但可以作为引子）</li></ul><p id="bd3b64b2-cf1a-4525-8eff-5114c03fb7ec" class="">人作为实践活动的主体，通过数据所驱动的交互规则，与计算机所代表的工具主体实现交互，产生系统价值。交互：人机交互，产生复杂系统的1+1＞2的效果。各类数据……像素与矢量说明“交互”。</p><p id="e37da564-1597-44df-813a-0a6d855f707e" class=""><em>采取人· 机结合,人· 网结合,以人为主的信息、知识和智慧的综合集成,这个技术路线是以思维科学为基础的。</em></p><p id="cc7aef78-4136-4a72-baad-3c79ce8eea92" class=""><em>——出处是哪儿？</em></p><ul id="dd93aed3-478b-43a7-a91d-471ad5c111d8" class="bulleted-list"><li style="list-style-type:disc">协同（系统的动态发展，并非后文的交付协同，也引不上）</li></ul><p id="19b1bef2-7adf-453f-9032-4d214616428f" class="">方法，工具，应用场景属于三组不同维度的事物，在技术水平与应用需求稳定的某一时期，形成相对稳定的系统，比如传统纸笔制图阶段，和当时建设速度相适应。当外部环境发生改变，比如工具的革新和建设需求的增长，这一开放系统就会受到外部影响，开始迭代更新。从新技术的探索和怀疑或滥用（无序），演变到全新的工具平台和更高，更多可能性的建设应用（有序）。</p><p id="2a11bbfb-56d8-4a54-b060-1ae7042efae8" class=""><em>客观世界存在着各种各样的系统；社会的或自然界的，有生命或无生命的，宏观的或微观的系统等，这些看起来完全不同的系统，却都具有深刻的相似性。协同论则是在研究事物从旧结构转变为新结构的机理的共同规律上形成和发展的，它的主要特点是通过类比对从无序到有序的现象建立了一整套数学模型和处理方案，并推广到广泛的领域。它基于“很多子系统的合作受相同原理支配而与子系统特性无关”的原理，设想在跨学科领域内，考察其类似性以探求其规律。哈肯在阐述协同论时讲道：“我们现在好像在大山脚下从不同的两边挖一条隧道，这个大山至今把不同的学科分隔开，尤其是把‘软’科学和‘硬’科学分隔开。”</em></p><p id="4d10277b-0d74-4cab-925b-23a647147aba" class=""><em>——出处是哪儿？（能不能勾兑到讨论方式部分？）</em></p><p id="07b85449-ffe4-402a-9c36-3a9ae04e360f" class="">
+</p><h3 id="57028a4d-392a-443b-8e86-e440b4670086" class="">系统演变实例</h3><p id="be04b7c1-05e6-40d0-889e-f322ff4bc80f" class="">比如Stephen对技术发展历程的定义。</p><p id="3c2329e3-16da-4c9b-b16b-1ced62f878df" class="">具有机电元件的原始数字景观</p><p id="d5aa882e-d022-4191-8ce1-e8fa957ba082" class="">基于数字文档的景观</p><p id="47c6a027-bd01-463a-aa95-919d3a919e9e" class="">虚拟（非物理）景观</p><p id="f8fa3a76-b448-4be1-a0cd-9cd6f28a343d" class="">具有数字化构思逻辑的算法景观</p><p id="97740fa1-8dce-4a29-a230-883a51d2739e" class="">具有数字化建造功能的景观</p><p id="36d527d7-c9d6-4547-b7f2-b6019c92c738" class="">由数字原件强化的景观</p><p id="2bf90aa9-f4cc-4ccb-b2ed-62810f004580" class="">含有设计原件信息物理景观</p><p id="92c89e9e-a8d7-44c8-b79f-7e737702188b" class="">仿生景观</p><p id="0fe9dc7f-5851-4d92-8084-b8b81d35988e" class=""><strong>新技术和新风格交替出现</strong>，这个是“工具方法应用”协同系统在应对外部变化时产生的升级，风格和方法交替影响，但并不绑定，习以为常的技术曾经也是巨大突破，而如今新颖的风格未来也会有一天变得习以为常。</p><p id="63efa4bd-a0c0-4639-8bda-c1b35941c175" class="">Ervin对数字景观的两种定义：“风景园林的数字化途径”或“数字（风格）景观的营造方法（结构、功能、意义）”体现了数字景观技术“作为工具”和“作为方法”两个概念。 这两个相互交融的概念统筹了八种分类：</p><p id="fa74b9d9-467d-434a-bf37-d61ef843a3dc" class="">原始：传统风格景观中的基础电子元件要素。</p><p id="195cf613-4430-4756-9f63-61f63110d7f3" class="">文档：最普遍的体现形式，数字化的基础平台。</p><p id="2f014375-7ec3-4d00-9d1a-3045ea20f389" class="">虚拟：三维建模、沉浸展示、其他的影像形式。</p><p id="23831b87-08fb-4da8-ae9f-b3b4fc91b38c" class="">算法：主要针对生成式设计，而非算法辅助分析。</p><p id="b1516bae-d9ac-42c2-9735-43593967289d" class="">建造：设备和建造信息直接对接的建造方式。</p><p id="2a4cfecb-3120-4522-b10c-37305a4adbcf" class="">强化：电子元件强化的非传统交互模式的景观实体。</p><p id="adc7fbd8-18b6-4a8d-ad68-e9c6068eb795" class="">CPS：物联网系统统筹下的全过程生命周期。</p><p id="db39c9fa-44eb-4327-a847-07791f40b81f" class="">BIO：目前仅存在于概念中的一种模式。</p><p id="548334fe-7a1e-4d2a-b59d-5bbe67fd2e4e" class="">新兴的风格往往与高技术相关联，但技术不一定只服务于新兴风格实现。某种类型的数字景观随着技术普及，逐渐服务于全类型审美的景观风格。</p><p id="65c9d004-f9a0-4521-a209-7175f4e5c064" class="">工具与方法的辩证关系体现出一种循环：传统的风格对应传统的工具，随着工具的发展，逐渐产生了新的或不同维度上的风格，这一风格在未来可能与传统风格相融合，一切又变成了未来视角下的“传统风格”，进入下一次循环。（目前我们可能只经历了第一次循环的前半部分）</p><p id="b8a54354-7e10-4055-8444-cae1f2686c8c" class="">数字景观技术可以归纳出很多研究领域，每个研究领域有着所代表的技术和软件。这些研究领域的技术本质相通，区别是在不同的尺度和系统下解决不同的问题。</p><p id="2825c929-34b7-4c0a-ae55-7f9e8fafa1bc" class="">
+</p><p id="c87bd30f-798a-4847-851d-884e404bac3f" class="">
+</p><hr id="237e2990-a9bd-4553-b96f-4022ca62b512"/><hr id="ef08378b-f860-46fa-9af9-20e78b7cc4b9"/><p id="253f4e77-5f5b-4562-aa76-46a00c9ecd17" class="">
+</p><h2 id="ea2f378d-295c-4121-8073-8911c3b1d5bd" class="">3.3.3 愿景体现：未来的信息化设计</h2><p id="ce57de10-ba37-47f7-a0c5-6f2ff6d45bf2" class="">现在进入幻想时间</p><p id="3b054be1-41b1-44eb-9e22-52668c89f62c" class="">请欣赏作文《二十年后的设计师是如何做设计的》</p><p id="5a5ccd3d-3e6a-4530-ba26-02da16204c6d" class="">愿景的外在形式</p><p id="789232f9-fc53-4565-aaee-3b6014bae15a" class="">引出机制篇</p><h3 id="152f9a2d-0327-4c76-acab-1615dc8a6712" class="">行业发展规律 （模拟的故事）</h3><p id="6d7ccb2a-8963-4f73-ace8-da311b030bb4" class="">生产力与生产关系</p><p id="8ce04aca-0469-4e28-8bab-3e2f1dbfd188" class="">讲一个其他行业的例子</p><p id="a43ae857-8bea-4222-95d1-b669f4f6afe8" class="">引出风景园林行业的四次模拟</p><p id="affd23dc-14b2-466d-a334-3ab76c0e5fa6" class="">发展路径 假设概述部分的问题都有解决 还需要哪些支撑？会实现哪些愿景？</p><p id="67d56cfc-1f80-4acd-9888-a39a42fd6940" class="">几种可能的愿景？</p><p id="c311f522-50a0-4ccf-99ce-79e7fe2234eb" class="">其他潜在的影响因素</p><p id="98099f7b-5852-42e9-b796-3193a3fc6cc5" class="">引出面向对象与工业化？</p><p id="4b4bb14b-3d39-44ec-8f6a-4ae21faca4ce" class="">机制？</p><h3 id="8b9f36d0-3a00-41bf-9ed3-f2a19cfb5e52" class=""><del>宏观：</del>技术体系的愿景</h3><p id="724f1d93-7b50-45c8-8fd3-feca57740127" class="">层出不穷的新科技</p><p id="ed7cd1cf-078e-425a-ac37-121aa312d90f" class="">引出科技体系</p><p id="ea5ad47b-b86e-47df-829f-649917dc3bc0" class="">宏观层次</p><p id="1946161a-b59a-4d09-8e8f-30676db53fd7" class="">关注技术变革，加强学习，实现技术普及——引出<a href="notion://www.notion.so/7bae9312bb97455dbf1e05ec058b5574#_%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E9%9B%86%E6%88%90%E5%BA%94%E7%94%A8%E4%BD%93%E7%B3%BB">信息技术集成应用体系</a></p><p id="4d6913d6-dcdf-4cfa-90af-302d448f322e" class="">
+</p><h3 id="7bc703c2-8681-4e5d-bf89-c17b7560e52f" class=""><del>中观：</del>分工优化的愿景</h3><p id="3a249e27-341b-4b1a-ab99-27451b766ccf" class="">中观层次，设计院内的分工配合到工地上的数字建造</p><p id="d659634b-76a9-4e65-a8c1-ee5df5acf643" class="">概念草图和模型</p><p id="0a7807ba-930d-4ec8-b3a0-c8755f9dad09" class="">根据草图和模型深化形成信息模型</p><p id="1efaa50d-73cc-4008-a694-a98e39bfb47d" class="">（强调工作流的分枝点）</p><p id="935791cf-375a-48c6-92ef-595454a8d9fb" class="">从这个信息模型输出表现图等成果，并直接交付模型</p><p id="2c835cf7-f4bd-40d1-b999-6bfa3899431e" class="">（一定要干掉施工图这种成果）</p><p id="81edcdd0-033c-4a1b-8dbf-2e48fc7f3c4a" class="">结构，用模型直接计算</p><p id="d3f1145f-86b3-4b10-8a05-2397cd643b32" class="">造价，用模型直接出量</p><p id="0ea7064c-ee9e-49e8-b400-71fda677ffff" class="">施工队，如何应用各种模型直接指导施工</p><p id="0c1c134b-dc54-4e28-b0f2-7229d0272185" class="">引出交付逻辑（管理逻辑，中观，工业化、工作流）<a href="notion://www.notion.so/7bae9312bb97455dbf1e05ec058b5574#_%E5%8D%8F%E5%90%8C%E4%BA%A4%E4%BB%98">协同交付</a></p><p id="e4c36079-dd09-4343-99ee-ddb7c4bfdc00" class="">
+</p><h3 id="851962e9-5769-45a2-bfa1-29126ef7db60" class=""><del>微观：</del>交互工具的愿景</h3><p id="677f9c32-de42-4449-8dcf-1d26285ecb9c" class="">个人层次，使用的软件</p><p id="a6b6e668-fac2-43e7-813d-da6bb8c922ce" class="">看看画草图的软件</p><p id="d447f455-09fd-4ded-8d5d-c8903a2008c7" class="">雕刻的软件</p><p id="54ca5167-747d-43d9-a318-07d608ebfcae" class="">深化建模的软件</p><p id="59fdafe7-8e39-4a91-8de5-0a371de5d700" class="">成果输出的软件</p><p id="96255e92-7f7b-4cf5-adc4-e5cc42586f59" class="">引出交互逻辑<a href="notion://www.notion.so/7bae9312bb97455dbf1e05ec058b5574#_%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92">人机交互</a></p><p id="af55570a-b917-4368-83ee-97608768bd6a" class="">
+</p><hr id="695b3093-97ea-42b2-bb7f-580fd5a9afc6"/><hr id="1fbf6de0-141e-4973-ab1b-3bed2c3db3ac"/><p id="96564f5f-1b12-412e-9dcc-397d4c0b84aa" class="">
+</p><h2 id="321ec5ce-ee4b-48b6-bb33-1740c0d0e517" class="">3.3.4 愿景小结</h2><p id="57d753b2-2321-4a2a-bc15-f715616979c5" class="">其实以上这些，并没有哪些技术完全是天方夜谭的，都是目前已经实现或初见端倪的。只是没有在风景园林工程设计领域被系统性地组织应用起来。所以很多技术没法发挥优势，无法突破等效性，形成需求导向。</p><p id="fb5190da-d64d-41fe-81a4-4b6bd51f8083" class="">反复强调的三个层次</p><p id="92823fe8-7831-4ae4-82a8-55fae325e03a" class="">后续展开的四部分内容</p><p id="6ad2c5df-6665-46e3-bba8-925bd4acdde5" class="">
+</p><ul id="1e4017b4-bf06-403b-9b15-cc9c9a89e273" class="bulleted-list"><li style="list-style-type:disc">信息技术如何通过“<a href="notion://www.notion.so/da312d389a634d748fe661273e96cb42#_%E7%AC%AC%E5%9B%9B%E6%AC%A1%E6%A8%A1%E6%8B%9F">第四次模拟</a>”改变设计活动的底层逻辑</li></ul><ul id="88176471-12c9-4428-80cb-cd7a759a88c4" class="bulleted-list"><li style="list-style-type:disc">多种新技术概念如何形成<a href="notion://www.notion.so/da312d389a634d748fe661273e96cb42#_%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E9%9B%86%E6%88%90%E5%BA%94%E7%94%A8%E4%BD%93%E7%B3%BB">信息技术集成应用体系</a></li></ul><ul id="c5d25136-a7ee-4983-b034-38f37e50122e" class="bulleted-list"><li style="list-style-type:disc">如何通过信息化的<a href="notion://www.notion.so/da312d389a634d748fe661273e96cb42#_%E5%8D%8F%E5%90%8C%E4%BA%A4%E4%BB%98">协同交付</a>，优化分工合作机制</li></ul><ul id="c854d648-1d9e-47fc-98ba-252a5d79d775" class="bulleted-list"><li style="list-style-type:disc">如何通过信息化技术优化设计师的<a href="notion://www.notion.so/da312d389a634d748fe661273e96cb42#_%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92">人机交互</a>体验</li></ul><p id="e232b7fe-1ed5-439f-8378-4ce1c89a18a9" class="">
+</p><p id="2bfed2c0-7eb7-489d-9006-77e3fcd6c30b" class="">
+</p><p id="078f251d-7a64-4c85-8bf6-6fe13a921758" class="">
+</p><p id="82d95eee-8091-4123-be8d-a741fcf46188" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

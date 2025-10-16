@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>10 展望：数智赋能</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2af550d2-514c-4915-aa31-8b59552fc80f" class="page sans"><header><h1 class="page-title">10 展望：数智赋能</h1><p class="page-description"></p></header><div class="page-body"><p id="3c672b58-7746-475e-bbe8-210ad5f64dc8" class="">
+</p><hr id="c32d2b98-0a8d-429a-9f66-81cdad1705ed"/><p id="fd3b8e35-65f3-431c-9545-82f9c2d241b2" class="">
+</p><h1 id="eeb25421-b170-489d-a3b7-02c42e5326a4" class="">10.1 人工智能</h1><p id="a4801cf3-a6b6-4cef-beab-d3834ad6c473" class="">计算机视觉与图像生成</p><p id="cda53b10-10a7-4dba-b0df-185aae279c55" class="">从ChatGPT到大模型</p><p id="3ab2a1f0-ebc3-40f1-bb88-4439b1b82ab3" class="">
+</p><p id="2d634408-3235-43c3-a43d-8d642a40828f" class="">
+</p><hr id="47a71ce1-f7f1-4652-a7a3-343d85dcdd4d"/><p id="967e020d-0289-44ee-b621-b98a1bddcbcf" class="">
+</p><h1 id="cb5daa60-5126-43bd-878d-5bb86f325062" class="">10.2 自主研发</h1><p id="20c94ecb-906a-4c10-a490-20d6b6d9940d" class="">自主开发</p><p id="315e50df-e6f6-4c6c-b587-8a95ce8dbe65" class="">数字资产</p><h3 id="98f7c713-5925-477d-9363-2e28d2f9dc65" class="">0.2.1 “体系”</h3><p id="7ca87790-7f77-489e-b42c-9232f50e0469" class="">技术供给·数据资产·条件支撑</p><p id="e884db8a-2410-4f74-b536-484bae767701" class="">标准体系：管理标准，制图标准，数据标准</p><p id="49c683b5-d6ef-4426-b0fc-79514160f65d" class="">资源库：项目案例库，工程做法库，电池组库，revit族库，其他素材</p><p id="f3cb4e57-f300-433d-8b17-6f214c803532" class="">多维数据资源库：地形、植被信息、历史……</p><p id="4350b393-3a77-43e4-a083-b9a4eb058408" class="">软硬件：工具实体与平台</p><p id="1f4bd5a7-dfc7-4743-9998-8c82050e9293" class="">团队组织与项目管理：BIM思维、标准化的管理流程、协同机制</p><h3 id="293038c5-d5e8-4bd0-9fe0-061877592660" class="">0.2.2 推进“专项应用”的自主开发</h3><p id="463da2a1-ec05-4865-a86a-6106e4f0e450" class="">拓展的第二个要点方向：专项应用</p><p id="09837e6b-1a9a-475e-8db5-a512a7a85537" class="">LIM设计应用体系构建</p><p id="c552d97a-2b3c-4dd4-bf73-47fc04b6074e" class="">基于AutoCAD和Rhinoceros两款软件，以设计师主观能动的设计活动为核心，就工程设计工作流程中供给（输入、模型创建）、输出（成果输出），以及管理（工作流）三个环节。梳理该应用体系涉及到的思维方法（包括传统方法的延伸和BIM方法的移植借鉴），及配套的二次开发工具实体。</p><p id="4ca10750-f381-4991-970f-547f48770140" class="">（CAD出图，SU参与，RHGH做接口。）（技术路线图）？</p><ul id="9ccfbcdc-81bb-4453-9a4d-66f3b9402ea1" class="bulleted-list"><li style="list-style-type:disc">*（1）供给端开发**</li></ul><p id="a0ef2267-3d3e-4605-b2df-24383cbe09cd" class="">方法思维：供给端包括素材（资源库）和辅助设计方法（工具集）的供给。</p><p id="d202c9fc-02d4-4be3-b322-be6f903c14d3" class="">“族”思维，模型内容组织块的实现</p><p id="233de2e3-cc4d-44c8-81c3-715c9f5d398c" class="">装配思维</p><p id="be29c3a3-45eb-4658-a976-6e60dfb535b8" class="">竖向设计</p><h3 id="fa8cec43-20fe-482f-a277-24dbd1d11b5a" class="">0.2.3 构件资源库</h3><p id="4bd44528-b8e4-4084-9405-17945816e9ff" class="">以图块的形式，将工程零构件，植物素材（代理物件），小品单体（部分代理物件），附属设施等各类对象整理成建模素材。参考BIM思维合理分级，指导建模过程中的使用。</p><p id="0daf5fad-c8ee-47e2-9e4b-d062f1acdc3c" class="">在CAD中体现为平面二维形象，通过名称关联，在gh中用开发好的运算器关联三维形象。相同原理还体现在和渲染器的协同——代理对象（Agent Object）技术，是图块的另一种拓展功能，是轻量化模型到可视化模型的转换载体，随着渲染器的发展，这一功能将会更加完善，（也是小范围交付环境的一种体现）</p><p id="c6ded496-9092-47c0-a73f-f00bbd5b0598" class="">构件库自定义拓展工具（和3dm模板相结合？）</p><p id="0c1bf81f-43a2-4750-aae6-444118c7d9fe" class="">模板：图层规则，命名规则（自用编码规则），gh电池生成工作模板（因为rhino更多是处理来自dwg文件的成果，3dm模板本身用的不多。电池的形式更灵活。</p><h3 id="f350c6d7-82ba-49a4-8b99-3dc212c1933e" class="">0.2.4 参数化建模辅助工具——装配工具（对标Revit）</h3><p id="9facae03-a940-4376-b1f1-294799f4c235" class="">无论是grasshopper中的电池组，还是传统BIM软件如Revit中参数化功能的族。都体现为对设计逻辑和建造逻辑的储存。基于三年来的实践经验，经过积累、归纳提炼，形成了三个模块的参数化工具集</p><p id="41bfc460-94b6-4e6a-bef6-3d18017cd0d0" class="">装配（参数化图集、详图工具）：调用构建资源库，点状装配（包括种植设计），面状装配，线性装配等不同装配逻辑，复刻civil3d等bim软件的操作逻辑。</p><ul id="71ebf8ec-0fbe-4db7-8074-d4453e33c8a5" class="bulleted-list"><li style="list-style-type:disc">*参数化建模辅助工具——竖向工具（对标Civil3D）**</li></ul><p id="7bcb7c0a-36e2-45ce-aa17-ce32405c233c" class="">竖向设计（总图工具）：包括地形处理，道路处理，场地处理，整合匹配，辅助分析五个运算器</p><h3 id="abaa15cc-746a-4956-899a-49a5636cf1f3" class="">0.2.5 输出端开发</h3><p id="99b8765c-999f-41e8-a609-293d60dbef30" class="">传统空间分析方法的移植</p><p id="9892ca51-008f-4a38-915c-a43063add5e9" class="">以交付规则为导向的工作流辅助、信息挂载</p><p id="47585b2e-3229-4454-b5b7-6ada82fbe7fe" class="">在设计活动完成时，实现量化、可视化、平台化的成果输出。</p><p id="1396d912-6bfd-45be-8e54-3cf6e0228274" class="">之前对BIM技术的判断，很多人关注于对传统工作，如手绘施工图的替代。然而BIM技术的在成果输出方面的价值是多元化的。可以体现为量化、可视化、平台化三个部分。</p><h3 id="1c420138-4875-4518-928c-15d152aa7c89" class="">0.2.6 量化</h3><p id="4b5afe1a-d318-4d21-ac8b-547c15af3591" class="">（3）分析工具：（用其他软件补全？）</p><p id="d519df4c-5187-4888-a092-29e3e2840aa3" class="">竖向空间分析</p><p id="865f4cad-cf13-45d3-86ef-fa4a5b539faa" class="">方案解析。。。。</p><p id="dff5b03f-6e3c-4452-8e05-fa40aa210308" class="">统计表单。和传统工作方法中离散的存在形式不同，信息模型工作流中的所有数据都是在计算机能够识别的规则下存储的，也就是说计算机可以代替设计师进行量化的统计，最浅显的体现就是工程量计算。</p><p id="9a07fa22-4a8a-4ae4-adf1-03c8bccd29e2" class="">还有一些其他的量化分析，也都可以基于模型进行输出，不用再从设计工作的核心工作流中剥离出来进行。如地表模型的空间分析（之前需要进入gis，分析和修改在两个环境中进行），现在可以一边分析一边修改。</p><h3 id="7bf52b14-518e-467f-adb8-025899a8ee61" class="">0.2.7 平台化</h3><p id="e939cd2c-2c4c-4bbe-942b-c708d202267e" class="">平台化是指模型生成或本身作为成果交付到一个“平台“。</p><p id="07293087-28a5-40b4-80f1-90551fb4cdf6" class="">交付转换（信息挂载）</p><p id="20e689cc-f12b-4c4c-b487-8138a5976328" class="">出现联合模型和轻量化交付模型的区别。工作创建的是联合模型</p><p id="ddfdea11-02d7-46d7-a320-461546d2b080" class="">轻量化模型是按照目标规则进行信息挂载和交付。（信息挂载、正则化 o = g + a  图块方法）施工图可以理解为一种“轻量化模型“的交付格式，传统的施工图审查流程也可以看作一个平台。</p><h3 id="7a387b92-ee9a-4194-b99a-dbe017098129" class="">0.2.8 可视化</h3><p id="e27c0d94-4d4c-4b08-964b-33f24be925d9" class="">可视化也分为几种不同的场景，一种是设计师第一手反馈出来的三维化的设计效果，一种是项目进行中的多专业技术审查，一种是作为表现图成果，渲染的高质量可视化。</p><p id="7822206f-0f07-49b6-b10b-b3d885e87977" class="">出现联合模型和可视化模型的区别。</p><p id="a2234c39-d2a1-4bb8-9da0-cbfed4cd67ea" class="">Enscape代理物件方法</p><p id="10ffb3e4-4400-4b94-b1e3-18681626813e" class="">所以可以看出出图并不完全是BIM的核心价值，是否使用BIM也不取决于模型能否替代图纸或者能否直接出图。笔者个人认为，在传统施工图工作环境下，能够产生辅助效果就可以了，（技术力量不过剩的话）没必要构建全新的出图方法。未来会逐渐取代施工图二维交付。</p><h3 id="6afc5bc9-a635-494c-bb6b-a5456a57780a" class="">0.2.9 管理端架构</h3><p id="833a6460-c450-48f7-839c-ed9a56c1197d" class="">方法综述：处于构思阶段</p><p id="dbdc2c18-bca2-48d6-9663-45a9f0965e2f" class="">文档管理：资源管理器中的事情</p><p id="f2543b89-8bfd-4bd7-b934-55aee4a4e35a" class="">项目管理：项目负责人的事情，多专业工程分项，多阶段进度把控等</p><p id="e0e80ea9-6e7f-4ca4-a106-a39db3fbf0f1" class="">
+</p><hr id="9ad0c516-d603-4872-ae5c-abc63fbe6c75"/><p id="be669040-b369-42e2-bdb0-6f1176bcbfee" class="">
+</p><p id="dcad24b7-024a-45b6-9b76-ba7b686ba205" class="">
+</p><h1 id="45f6175f-96f8-459c-a82d-d98bdf707b40" class="">10.3 数字化转型</h1><p id="cf604213-38fb-4757-9dcc-f1c550d1989b" class="">数字化</p><p id="37e29657-05b5-4305-9431-ab466746cf2f" class="">公司</p><p id="c9d32f6c-9da9-4ff8-b194-68075fffe949" class="">无纸化，oa优化</p><p id="fc99838b-f887-4b4a-b4ea-8acded637d66" class="">内审机制创新</p><p id="8ca20f83-dee1-42e7-a6e5-cb7c65299fb7" class="">数据资源库建设</p><p id="9446990e-59ef-42de-a74d-224a0173d14a" class="">团队</p><p id="6b2ba5d2-6091-4073-af84-0df1be84aee4" class="">管理机制，协同机制总结</p><p id="dfeae505-a93c-4ec4-95a3-45871b93d39a" class="">项目资源复盘，归档</p><p id="69d8fc9a-923a-4a11-995e-8ddfc5911e9b" class="">专项工作流创新</p><p id="0eb1beec-7771-44af-b41d-c42f7c5ed783" class="">个人</p><p id="12356999-dc44-4024-b71e-b9a290252eaa" class="">关注新技术，提高敏锐度</p><p id="691e6a14-e79d-4873-ae8e-9387467d8e9b" class="">实践中尝试</p><p id="ca4b16b3-23f2-4e06-abb6-8793b593ea82" class="">提出需求，交流</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

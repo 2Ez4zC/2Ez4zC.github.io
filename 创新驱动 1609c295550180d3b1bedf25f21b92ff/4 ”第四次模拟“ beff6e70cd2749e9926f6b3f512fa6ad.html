@@ -1,0 +1,718 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>4 ”第四次模拟“</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="beff6e70-cd27-49e9-926f-6b3f512fa6ad" class="page sans"><header><h1 class="page-title">4 ”第四次模拟“</h1><p class="page-description"></p></header><div class="page-body"><p id="eb5fe5cd-3f0a-40e6-926f-ad3e0c9601c1" class="">明确信息技术发挥效力的机制</p><p id="579ca0f0-e71a-4696-8900-de2c5e138297" class="">需要从生产力与生产关系入手</p><p id="e18fbf7b-5855-4a72-8675-f55e0b9d6d81" class="">这里把风景园林工程设计的发展分成了四个阶段</p><p id="67efcdbe-cdbe-47fc-8b53-816ecb94c440" class="">以“模拟”为线索进行介绍</p><p id="cc04b7c2-db12-47a1-8da7-db67a9d7d866" class="">
+</p><hr id="b7d6dcc9-e422-4032-9068-5ff66db7938e"/><p id="739ee7fb-5c12-46f5-8a86-be22bf949ef4" class="">
+</p><h1 id="b096449f-b45f-4d58-a2f7-c39fdbbbfb44" class="">4.1 第一次模拟：自然到人造自然</h1><h2 id="1a12446e-97e8-40e1-8fbb-1230eec441e2" class="">4.1.1 第一自然到第二自然</h2><p id="8c019ec5-31a5-45ea-9329-bebd316f3e10" class="">哲学上把未经人类改造的自然称为“第一自然”</p><p id="3bfc458a-b4a5-4417-af2c-e35b02a29352" class="">把经过人类改造的自然称为“第二自然”</p><p id="46182b50-4b2d-4fd6-a882-8bc98dd6fad8" class="">第三自然就不太有统一的概念，一般某个专业会把自己专业介入的内容说成是第三自然，</p><p id="a8077884-6dc8-4b48-b88e-c0e86b366131" class="">比如风景园林专业会把第二自然限定到只到居住、农耕等活动影响，但未经主观主动的造园活动的自然。而主观造园活动形成的公园等称为第三自然</p><p id="2eaf6ed9-ae3b-4698-9927-5de0b22a0080" class="">建筑专业会说建筑是第三自然</p><p id="984af3d2-467d-4bc0-88cb-d1d3e07c9071" class="">也有夹带价值导向的，说第三自然是为了人类的欲望和利益而被改变、破坏的自然。</p><p id="8261dd4e-0259-454c-bcc9-551d9ba75655" class="">（但这些实际上都是对第二自然的延伸，是第二自然概念的实例）</p><p id="43b0ae5f-fdfd-4176-b951-f84a9298d49c" class="">甚至还有第四自然，其中大部分还是对第三自然的进一步延伸，</p><p id="85ba031b-b36d-411a-a705-df37aaa1a11c" class="">这里就不再讨论，只做“第一自然——原生自然”和“第二自然——人类参与过的自然”这种二元化分。</p><h2 id="683e57b0-4adf-4139-8d41-ec983be4e033" class="">4.1.2 风景园林本质的一种理解</h2><p id="92753708-a0e7-4cd2-b9a0-658d3cab4e4a" class="">风景园林工程</p><p id="9ce5e069-adfb-41eb-80bc-4d1e8d167d59" class="">就是通过对第一自然的模拟，创建第二自然</p><p id="cf4c0668-09e8-4647-a52e-d9fa68750f02" class="">从自然到人造自然。即造园活动，人类对原生自然的模拟与改造</p><p id="4775fff6-0ceb-46a6-8fbf-4a167af53eaf" class="">原尺度模拟</p><p id="99da7b6d-23d8-410a-b6db-59f8b1a21b72" class="">缩、移、模拟</p><p id="e64c67ef-00ba-47d5-bf1a-ffd54b9b3514" class="">关键在于模拟</p><p id="337df526-7eea-48fa-a022-8f0d93dcf6d0" class="">
+</p><hr id="ed32b94d-357e-4ce9-b72d-aaee67dc959d"/><p id="5838099e-1e19-4a25-9566-d84c9039e037" class="">
+</p><h1 id="511c96d3-610e-41ed-a6d2-8aea57476fe4" class="">4.2 第二次模拟：造园活动到图纸 （限定了交付物）</h1><p id="e97888cd-68a1-4ee4-9af7-41db0fb46d8c" class="">注意，虽然都有第几次的用辞，但是这里说的就是模拟，不再讨论第几自然的问题了。</p><p id="fe247235-b2ce-4ed4-96d3-d3e08d9764ad" class="">第二次模拟，主要是指人类对造园活动的模拟</p><p id="c8646e45-aab1-4cbd-bf68-b3ac70a51dc7" class="">从造园活动到图纸。即工程制图，人类对造园活动的模拟</p><p id="ced4cc64-eb23-49df-9ca9-e1c5e47168e3" class="">把造园活动，模拟成图纸等记录形式，即形成了交付物</p><h2 id="64f3eb40-6ee9-41bd-8ecf-0e93f7dedacc" class="">4.2.1 古人到底画不画图</h2><h2 id="cf12636f-d137-4973-8536-c6d5249fa742" class="">4.2.2 交付物的问题</h2><p id="acf4a02a-de02-45cb-997a-7e44cfa38bc2" class="">交付物的形式，取决于技术水平</p><p id="1a4673d3-4a9b-4f6e-aa8e-c4c2138630f0" class="">某种形式的应用，时间长了会形成范式，会形成标准规范</p><p id="018b142a-14b6-48fb-8ad1-acca762afc26" class="">但这反而限制了新交付形式的应用</p><p id="5dacc1f1-6459-4306-9d1a-99dd6e81bde9" class="">
+</p><hr id="92f4e178-452e-4233-98d8-8359a85a70ee"/><p id="402639f2-0483-4a30-9d5c-0fdb18c55f51" class="">
+</p><h1 id="57d0f135-319d-49e9-b42c-2f970d9eceae" class="">4.3 第三次模拟：从图纸到电子图纸<br/> （限定了交互方式）</h1><p id="3181b6e9-3c27-4bd1-8dab-694e61ed7705" class="">第三次模拟，对应的就是计算机辅助制图技术的普及</p><p id="4c145449-185a-49fc-aab1-c0a1dbe00c22" class="">即甩图板</p><p id="572e35ce-ae34-4caa-9b1d-70c30229fa1f" class="">但实际上，从图纸到电子图纸的转换</p><p id="e954688f-08fe-4a99-9133-bbe50d68b4a7" class="">模拟的实际是“画图”这件事，</p><p id="f7006605-1c7c-41b0-b8a1-0d32d6100d50" class="">形成了“造园活动——第二次模拟——图纸——第三次模拟——电子图纸”的链条</p><p id="be925e09-6c50-466e-a943-10cc9df55b0f" class="">虽然提高了画图这件事的效率</p><p id="5c25fb6a-bad7-4c6d-8e24-672947c24c51" class="">但也将整个设计活动限制在了第二次模拟的框架之下</p><p id="7da6b5cf-a21f-43e9-bab1-5c4bcc802b11" class="">来来回回，还是画图</p><p id="68db7bee-801a-451b-9628-9de0655e1a71" class="">限定到具体的交付物类型上</p><p id="c2a0df90-e6b6-4246-9de9-a0487dff9220" class="">可以说，第三次模拟，只是对第二次模拟的延伸</p><p id="84f26e15-9737-49c7-8646-b7d566ded8eb" class="">第3次模拟：从图纸到电子图纸。传统计算机辅助制图，以及信息技术的早期形态，</p><p id="3e99a9eb-090d-40f9-b33b-51e10ab557a7" class="">但仍局限于对工程制图活动的模拟。前三次模拟，越来越局限。要兼容之前模拟的规则。</p><p id="0ead5177-9801-4cbb-ba68-1a8ef26e2781" class="">向下兼容，比如“BIM出图”这件事）</p><h3 id="2b1a6aee-abf7-48cb-ac2d-709ff73ad737" class="">4.3.1 被限定的交互方式</h3><p id="4084b955-f314-43a5-871f-187346dba2eb" class="">
+</p><p id="d78e89c6-6ba5-4629-a8c8-dd2ec72efcc8" class="">
+</p><hr id="4c3b1137-10aa-4dd2-bdd6-444dfe7052e5"/><p id="1704b2a1-9eaa-4fbe-a2e3-250cdb0abda8" class="">
+</p><h1 id="f8746c31-0f2b-40fd-9e8c-4a0cc6a71d53" class="">4.4 第四次模拟：从现实到数字世界</h1><p id="048e2abd-c4d6-4217-a0a9-e87c321e9aae" class="">如果第四次模拟，继续沿着第三次模拟的路线</p><p id="706aae8a-80bb-44ac-b153-012df99e9531" class="">去研究，怎么用模型创建图纸，怎么用AI创建图纸，怎么用AI审图纸</p><p id="2b6aca63-8a3e-4788-9939-bd0594afcfe7" class="">局限于这种交付物，那么路就走窄了</p><h2 id="cb15feda-6740-4af9-a50c-e8d616702088" class="">4.4.1 第四次模拟与“数字孪生”</h2><p id="9184b2a2-9702-49a8-bfb7-730361be7dc2" class="">电子图纸只是对制图活动的数字孪生</p><p id="e05dd8f0-e39a-46c1-b2a2-4ba4fbfbe7f3" class="">而信息化设计应该是对整个建设活动的数字孪生</p><p id="c5e771f0-b077-49a1-b093-94c8cb1a0f45" class="">模拟对象：全生命周期中的要素和过程</p><p id="0bcb9f9a-1070-4f1e-80c7-a65bd15544d8" class="">“模拟”的对象：风景园林工程设计相关的要素和过程</p><p id="28adbc5f-7de6-4c18-868f-e8c2f9f38fdd" class="">模拟方法：数字孪生</p><p id="487e90ec-f1c1-4afa-a9e9-56e574ee2609" class="">重点在工具、方法体系</p><h3 id="f331234d-fa11-4971-abb5-2d5e2c22c462" class="">技术发展维度（初步框架）</h3><p id="ac7ce262-deff-406f-ac54-454700ca5d37" class="">框图总体框架描述：基于模拟理论的信息技术总体框架</p><p id="fc2c80e3-0a11-4b2e-a4c5-f97dc8b30231" class="">总体技术路线？先有个基础，再有个拓展机制</p><p id="2f71d148-5a35-4546-817b-a3df4a3b5e4c" class="">（图）</p><p id="88db59ae-4830-4ae4-bf41-ba3674e9f8db" class="">和数字孪生的关系</p><h3 id="46ce25a0-f526-4c46-8c42-9970ebcae607" class="">信息效率升级？</h3><p id="b9d17c45-7e84-4ec2-81e9-78e2c3f79e38" class="">这个概念是不是单独研究一下，是控制论，还是什么之类的</p><h3 id="bf2f7df0-6f17-4311-9a02-7bd9e745daf8" class="">内涵和定义或论断</h3><p id="65a677bd-785c-4309-8012-54c04aa66ef3" class="">第四次模拟，不应该是第三次模拟的延伸，也不应该是第二次模拟的延伸，应该是和第二次模拟平行的，对第二次模拟的推翻</p><p id="8b7f538d-44a7-46f5-a83d-f1ba4b2343fa" class="">用全面的数字化方法，对造园活动进行模拟，（这里可以替换成任何专业的规划建设活动），</p><p id="3fada6fc-3da5-458f-8cc9-e228e95cae73" class="">从现实到数字孪生。在数字孪生世界，重新打开局面。不应局限于传统制图手段和传统施工方法。新的技术应该全方位模拟，实现对前两次模拟的突破，以及施工建造领域的突破，如信息技术支撑的数字建造技术。</p><p id="c9b91aa8-5272-4140-b897-1727b0c171db" class=""><strong>风景园林工程信息化设计定义（或论断？）</strong></p><p id="f9bf9ddc-5d50-4fac-824c-18755091425e" class="">规避开BIM狭义理解不兼容不同专业的问题，不如把风景园林工程的信息化技术总结为：对“全生命周期”中设计阶段涉及的要素和过程进行模拟</p><p id="1115afe7-0be8-450a-b1ef-d64a3cebae50" class=""><strong>对风景园林工程信息化设计的定义和描述</strong></p><p id="1cf7c89a-f41a-4125-b299-d48a5afd60f2" class=""><strong>风景园林工程信息化设计，是第四次模拟？内涵……</strong></p><p id="7d750498-9fc6-4efb-8b2f-fe2d32669811" class="">
+</p><h2 id="28d1be29-37eb-44a5-8744-e30b4fd7b503" class="">4.4.2 全生命周期与技术集成体系（对应5-9）</h2><h3 id="e660aedc-d96a-492e-96b3-b2983123020c" class="">生成逻辑</h3><p id="ca8ccd33-aeb8-4ad5-bcc5-b5b0d1ebe68c" class="">“六步骤”是设计过程的一种归纳形式，用于构建数字技术与设计活动的映射关系。将信息技术发展的时代与六步骤相叠加，观察数字技术如何对设计活动产生影响。</p><p id="4cc94df5-cb88-4158-a0f9-f77e97bb6223" class="">这里对六步骤在数字景观领域的含义稍加说明：</p><p id="58db7a96-c936-439e-a726-f7a444e568c8" class="">使用：特指由数字技术改变使用与交互体验方式。</p><p id="7fecf889-b8e8-4493-ba47-df577cbcfa10" class="">感知：通过数字技术从现状或使用者获取基础信息。</p><p id="b378ba69-f25c-47c0-9d1b-8373cac755c1" class="">分析：数字化途径对基础数据进行分析、辅助决策。</p><p id="a2c71095-3d42-4103-bc99-7658fd65f1d8" class="">设计：计算机参与设计决策的部分或全部工作。</p><p id="ccec57e8-0590-4c7f-9b4c-672f139db1b0" class="">交流：借助数字化方法进行方案表达、汇报交流。</p><p id="6d6b2091-475d-4f4a-8a61-78e43cd6d2ae" class="">建造：与信息化工作流相连通的数字化建造方式。</p><p id="9e190ccb-7d85-45ef-8b69-4db74d0907ec" class="">
+</p><p id="af7ab953-c5eb-4066-a59a-513e6e84b177" class="">可以看出，最先受到数字技术影响的环节为感知、分析与交流，这与数字技术刚出现时的第一手应用形式密切相关。随着技术向更加内在（算法影响设计）和外在（数字化元件参与的建造与交互使用）发展，其他环节才开始进入数字时代。其中设计环节受到的影响较为滞后，因为设计师在设计活动中发挥的作用很难被替代，而计算机生成的设计结果或风格则一直饱受争议。</p><p id="4ef2bf6f-5944-45c8-897b-db4093f08cf9" class="">高效感知：新型基础测绘</p><p id="625040f8-5b42-41dc-95ea-4dd93eb1ce67" class="">系统设计：参数化设计，BIM，……</p><p id="ae9a99cc-e8ac-44a8-b2a6-c969841c4d58" class="">定量分析（循证）：由循证来实现规划到设计的传导，来实现理论到实践的传导？</p><p id="2011288e-3b2f-4980-b5c3-f478b28b4261" class="">多元协同：设计之外</p><p id="eae84d95-99e5-4192-8f9b-07fb563e36dd" class="">智能拓展：云数智、数字孪生、编程</p><p id="da86afae-d52f-45b4-9d12-367fc4a4279e" class="">（4+1）</p><p id="e7930723-aea4-45a6-86f6-a1431f868404" class="">这个维度怎么和四次模拟的维度整合？</p><p id="59b521f3-f54c-4f20-80ac-6fa792cbbb16" class="">整体路线图如何优化？一张图还是两张图？或者并非是一个二维图？</p><p id="f8ac5c2c-ff2f-4182-9fa9-c3ff2da71390" class="">多维度图还是多圈层图？</p><p id="8d90c2e4-8299-44d2-86a6-bbf00cb33a42" class="">
+</p><h3 id="bd6ced1b-4dce-4edf-9e1d-df17da12cbf8" class="">0.4.3 交付升级：面向对象和工业化（对应6）</h3><h3 id="06107720-22fb-4be8-a280-dba4d9bd9231" class="">1） 交付和交互的范畴</h3><p id="317925c7-b6bc-4ec7-b4ae-894a4da0d0e5" class="">把一组等高线交付给施工队，这是一次交付</p><p id="c65f16eb-d8a9-40e1-85af-1b4c5f636d06" class="">这次交付的有效性，涉及到多次交互</p><p id="43c76ee9-d48f-4f67-b93e-4d0d75ba4d2f" class="">1 设计师创建等高线（创建信息）</p><p id="7bf58a4a-0731-443d-8b95-ead559fa13be" class="">2 施工队处理等高线（获取信息）</p><p id="d8773e1e-81d4-4f98-af7e-e930adc56bb9" class="">3 根据获取的信息去施工（施工范畴，工程技术范畴）</p><p id="5a07a81e-56e4-4848-a7ca-ef7bd6e1ae90" class="">交互交付以低成本原型开发的形式，储存这里的逻辑，给未来信息化发展兜底</p><h3 id="79b1c43c-7a4d-4dd6-aaa0-8ca3cbd7697a" class="">2） 面向对象</h3><p id="160a36c4-e33a-480e-87ce-df7c244590a6" class=""><a href="notion://www.notion.so/beff6e70cd2749e9926f6b3f512fa6ad#_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">面向对象</a></p><p id="2454c049-1ba1-4dd2-b050-c44622ccc17a" class="">这种形式，可以看作一种新的交付物形式，比传统的交付物的投入肯定更大</p><p id="e20164f6-d307-47e6-9944-7d39d63d32d3" class="">所以需要更系统的创建过程，和后续的应用流程</p><p id="04994ad2-7add-42be-beba-5aadbb9c50ac" class="">在传统环境下，单项技术肯定比不上常规方法</p><p id="b7cbc1be-6027-4576-846a-f6063d97ed6d" class="">需要工业化的体系</p><p id="ba5743fb-4336-42ca-b8a7-f5d1c467ae88" class="">（与对象相对应的——离散）我们的思维和数据都是离散的。新的技术体系需要更理性科学地构建设计思维和工具之间的关系。</p><h3 id="6edf1990-13bd-4af6-a9e4-d90f42f3eacc" class="">3） 工业化</h3><p id="9ad012c9-6726-4a77-bfe8-3c00b22a30f9" class="">因为这种模拟的工作量会变大</p><p id="47b5e5c4-64dd-4c95-8eb4-bdfb3d07e7e2" class="">如果不发挥足够多的作用，在小场景下是比不过传统工作方法的</p><p id="b240d609-8657-4a83-9cf7-3ca82cae3a8e" class="">所以一定要有工业化的体系作为支撑</p><p id="285a02c6-92ef-45f0-b627-0b9ae7fa263b" class="">很多行业都是先工业化再数字化</p><p id="ca9042d7-2e42-4547-9e2a-f1e55a96e796" class="">而园林行业因为规模和特征影响，没有工业化的过程，直接开始了信息技术的单项应用</p><p id="8a8e798b-acb7-4577-ab19-e0eb0a70417e" class="">在信息化之前先推进工业化（工作流程优化，类比电影工业）</p><p id="ccde4ff6-103b-44f9-b93c-1f585442bce9" class="">工业化，信息化</p><ul id="d2997ff7-2380-4d07-a687-b2782db8962d" class="bulleted-list"><li style="list-style-type:disc">交付（Delivery）升级</li></ul><p id="341073a3-27ab-4050-836b-126dd32817c0" class="">靠工作流（生产组织关系）来于机制衔接，并具体体现为交互和交付两方面问题</p><p id="af147e1a-a0fe-4bd0-902f-16fc4407d379" class="">交付考虑整个工作流的信息效率</p><h3 id="5c47ccd9-ff34-4d13-80cd-af69fc3b2fac" class="">0.4.4 交互升级：从画画面到建模型（对应7）</h3><ul id="5471dfea-54f7-4cdc-aa2b-d440028b726e" class="bulleted-list"><li style="list-style-type:disc">交互（Interaction）升级</li></ul><p id="434e5a58-b07a-4cf5-b70d-ca5dc274b79f" class="">交互考虑单次活动的信息效率</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

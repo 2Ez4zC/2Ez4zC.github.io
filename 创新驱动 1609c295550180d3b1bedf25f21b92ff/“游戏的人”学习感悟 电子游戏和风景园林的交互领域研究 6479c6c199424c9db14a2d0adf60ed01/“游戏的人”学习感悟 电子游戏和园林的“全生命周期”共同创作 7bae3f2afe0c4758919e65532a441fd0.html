@@ -1,0 +1,731 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>“游戏的人”学习感悟 | 电子游戏和园林的“全生命周期”共同创作</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7bae3f2a-fe0c-4758-919e-65532a441fd0" class="page sans"><header><h1 class="page-title">“游戏的人”学习感悟 | 电子游戏和园林的“全生命周期”共同创作</h1><p class="page-description"></p></header><div class="page-body"><p id="9f19a1fa-4c1f-47db-b1ae-628c335005c2" class="">
+</p><p id="0b2b54b2-0368-4488-8d31-0845ebba5c42" class="">游戏不止三维，二维游戏，更接近风景园林的设计过程。</p><p id="60f99f49-6daf-40ec-bcaf-886ea23d347e" class="">
+</p><h2 id="1f32ac12-e712-4afc-9749-8da77ae6f11d" class="">广义的创作——“全生命周期”视角下的人</h2><p id="845cd783-c65b-4e77-84bd-6ff3e18aed10" class="">
+</p><p id="7f635555-aeb6-48d1-8b42-e194c39a2b62" class="">游戏的创作，一边玩一边创作的例子</p><p id="a56fbcf8-c77d-45c4-ae4e-319ab0206b79" class="">蒂姆斯维尼的ZZT，魔兽争霸WE，十字军东征，游戏MOD社群</p><p id="e16c09e9-4a8e-4710-ac91-0bd00befe93d" class="">园林早期也并没有特别明显的输出者和受众的关系，业主和设计师共同创作</p><p id="bf961514-51d0-448c-aa57-510b0369ba17" class="">
+</p><p id="72baac78-e488-4649-a8de-2e02ee90008c" class="">现在逐渐分化，出现创作——使用的二元割裂</p><p id="e5a53766-800b-4e96-91fb-8ec561c580a5" class="">但使用活动和运行中仍有创作：涌现式游戏，塞尔达，我的世界</p><p id="16bf0231-f477-45c2-984e-a6ce80553884" class="">园林中的使用活动，踩出来的小径，被挂衣服的运动设施，广场舞的集散广场</p><p id="02706fc6-a133-485f-9e17-bf1216a2ae73" class="">
+</p><p id="ab94ef34-69ce-4949-80af-a6289a5c650e" class="">
+</p><p id="60b56803-7f1a-4d9a-afbf-169d996ffaa4" class="">回归共同创作</p><p id="97306708-111d-492d-bd9c-ba7f1ec608e3" class="">公众参与的新形式？让居民通过电子游戏的方式，参与公园方案的设计？</p><p id="0e249a74-a216-4506-950a-6f1a42012172" class="">
+</p><p id="298f02d2-b355-47a9-80dc-346cd5f94791" class="">
+</p><h2 id="b38c4ebe-6584-4ee6-b69d-cd8eff578546" class="">主动参与和被动参与</h2><p id="2cb5bd48-403e-44fa-b4dd-ba4f3bdf095c" class="">
+</p><p id="ca7df919-47ed-409d-8437-2a1a1c29f923" class="">主动参与，沟通，交流，公众参与，提意见</p><p id="ea64c59c-d241-4974-bdf4-e734e40119cc" class="">
+</p><p id="7177b5fd-c071-4c1a-886a-98f6238f860a" class="">被动参与——数据驱动</p><p id="a4b299ea-6206-4542-bd5d-4e0f68f4f489" class="">游戏可以根据统计数据做平衡优化</p><p id="9c9c0f89-c9e7-4ac2-b2a5-a134a0c78417" class="">园林是否也可以？</p><p id="04f6a62e-9164-4943-9ca7-dd68b1676f13" class="">@数据驱动深挖</p><p id="e9b55268-f785-4426-801e-d71e1da13cf2" class="">
+</p><h2 id="8780d1c4-67fd-4b6f-b598-7b7689f536fa" class="">工具的思考：园林设计信息化转型的借鉴</h2><p id="404cd6cf-1bd5-49ea-96c4-f14984a7205f" class="">上个世纪，专业领域的计算机图形学发展是领先于游戏行业的。后来出现了分化（属于归纳性分类介绍，层级并不对等）</p><p id="39c4ca72-c633-4f82-bf54-270b54cf156d" class="">游戏可以作为其中一种</p><p id="5890d22e-ddc7-4da7-80b9-416b18c5cc15" class="">第二种是趋向专业化的，工业设计，精细化建模，（CAD，CAE，CAM）</p><p id="4fcbb6b5-5d04-48df-bd1c-2f805852dc72" class="">第三种是粗放化普及化的（其实只是CAD的一个分支），比如工程建设领域的制图和建模技术，受到图纸媒介的影响，逐渐去技术化。一些文艺复兴式的概念（BIM）</p><p id="404846cc-ad5f-4326-93fb-d47c2de509c4" class="">
+</p><p id="010fac0c-24a1-403c-840d-dbfe14e26c89" class="">这部分关联性直观体现在创造过程。游戏的建模和风景园林的建模都涉及对环境的模拟，人作为创造者，研究主要关注使用的工具和创造的媒介。以及全生命周期中人的共同创作。</p><p id="4ca3434c-a3a8-43b2-b3ae-dd54445b6c40" class="">
+</p><figure id="7744e508-7234-40ad-9f12-34f2352ffa5a" class="image"><a href="%E2%80%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BA%BA%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F%20%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%92%8C%E5%9B%AD%E6%9E%97%E7%9A%84%E2%80%9C%E5%85%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E2%80%9D%E5%85%B1%E5%90%8C%E5%88%9B%E4%BD%9C%207bae3f2afe0c4758919e65532a441fd0/Untitled.png"><img style="width:707.953125px" src="%E2%80%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BA%BA%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F%20%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%92%8C%E5%9B%AD%E6%9E%97%E7%9A%84%E2%80%9C%E5%85%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E2%80%9D%E5%85%B1%E5%90%8C%E5%88%9B%E4%BD%9C%207bae3f2afe0c4758919e65532a441fd0/Untitled.png"/></a></figure><p id="0c7f0cdf-d09e-4127-bf9d-9f36c3765cf4" class="">主要线索，其实是从要素创建到系统模拟</p><p id="49fdf6f7-50ad-4e94-be84-ca903bd50d00" class="">园林和很多工程，走了一种倒退的弯路，或者说是受传统媒介（图纸）的影响，没有走向系统模拟，而是用各种简化的切片（视图）去做设计。要思考如何回到系统模拟。</p><p id="9d491598-bf1a-4890-ae03-5462a07c39ce" class="">
+</p><p id="873c72ae-4584-49be-aab3-80a5031315ce" class="">以下三个部分是连续的，数字资产是最直观的载体，但说完数字资产，很自然地涉及到工具和工作流的组织。工作流组织，会涉及人员，所以是顺序相关联的部分。</p><p id="7fae801d-6933-4923-a24a-91044793ee4e" class="">
+</p><h3 id="5230d996-735c-4925-b95d-6810e5087dd8" class="">数字资产与渲染表现</h3><p id="b25a78f6-11b2-4670-84fd-bccb742873a8" class="">游戏影视领域，美术资产的概念。</p><p id="52f40542-b906-4ef4-92ef-6034a7c8214c" class="">风景园林领域，对象化的部分太自成体系，不对外开放。而要求自主设计的部分，又比较宽散，受限于最终输出形式的要去，不会做对象管理。素材。</p><p id="1351ce29-b99d-4d89-a1a0-ebf7b341f0be" class="">对素材的认知度低，使用度浅。高质量的BIM数字资产难以发挥价值。</p><p id="e0e93691-0162-4544-bcef-9db3066bc271" class="">数字资产与信息模型（三维建模，素材、speedtree），</p><p id="f8ae6227-5228-4d8b-b1be-f2a76afe5e79" class="">
+</p><h3 id="26051ed7-bc4d-4041-a649-e4a37d876b78" class="">工具与工作流</h3><p id="66ab48f5-a3b2-49db-bf1e-ee9ba0571c04" class="">
+</p><p id="f506871e-a5dc-4bf1-a193-e41bbc39238b" class="">从id software的罗梅罗</p><p id="a88292e1-1630-4b0f-8d10-4a74e39c2e5b" class="">到虚幻引擎的斯维尼</p><p id="cdc514f8-025f-4159-83a0-62474e52efa9" class="">到阀门</p><p id="932a15c8-e2b6-421a-9172-c051d4b1a625" class="">
+</p><p id="8fa12f15-e37b-4039-997f-d21f69d6e7de" class="">游戏引擎与渲染器（很多渲染器，BIM模拟都使用了游戏引擎）</p><p id="3e603112-521e-45ee-a94b-f798bc972b4e" class="">
+</p><p id="fbcbcadb-3e44-40c5-92a1-4306e35701cb" class="">结论，数字孪生，对象化表达，实景三维技术，AI技术</p><p id="4345cb41-bc6a-4a8d-a281-ffcb37edbad9" class="">技术是过剩的，市场是萎缩的</p><p id="641ba4d1-6718-4d99-8c90-fcb727e3f40b" class="">
+</p><ul id="7fe461ac-7712-40b8-9373-0b0fa61b4ad8" class="bulleted-list"><li style="list-style-type:disc">作为工具的游戏</li></ul><p id="295fca0f-32e3-4308-8813-533817b2024a" class="">一些个例，游戏本身就是对规划设计的模拟，比如城市天际线，比如各种建造类游戏，模拟类游戏）</p><p id="b4601550-9a16-4535-a1d3-85d5e8ad3acd" class="">
+</p><h3 id="a90df252-ffe7-43f4-a8c3-37acfa3f257d" class="">人员组织，角色</h3><p id="248372d8-e853-432b-8c6b-8ab376ff185a" class="">游戏：平面美术，三维美术，技术美术，程序，策划</p><p id="2bbf65ac-6d8e-471f-89c3-a906e34082f7" class="">园林：扁平化分工，带来的问题，优化的空间</p><p id="0e24d2ce-db8f-4c9b-b88c-1279729fe3ab" class="">工作流（工作流的借鉴）、生命周期（dlc，更新维护）</p><p id="fa6e43ec-8a48-4cae-9422-51893ddc81d8" class="">
+</p><p id="a0a9474a-589b-4e6f-9897-efe019168aa2" class="">考虑到共同参与</p><p id="0f11a223-9a9c-4a17-8e0b-551f7773bbd9" class="">考虑到知识表达范式，ai技术的发展</p><p id="2ab66bd7-f18e-47af-8429-e046e3d310ce" class="">考虑到专业性和门槛的减弱</p><p id="774e80bb-d6e6-4427-8d53-4310f29f9483" class="">设计师作为专业守门员的位置越来越不稳定了</p><p id="fc57f6c1-8794-40b4-b381-26960472b3e8" class="">
+</p><p id="9eb642b7-a7dd-42df-980b-b8b24a62b393" class="">未来的设计工具应该是创意过程去专业化</p><p id="0911b0ad-3cb6-444c-9a2b-1d11668a9f1a" class="">实现过程高效自动化、工业化、标准化</p><p id="a9898777-7137-4d0b-a245-5571dc637df2" class="">
+</p><p id="05028569-6cf2-41ff-839d-a4b5ac05253e" class="">游戏本体+开源编辑器+MOD的模式已经比较理想，在此框架基础上继续优化</p><p id="8a21960e-bcf7-4037-8a1d-f2a0263d2fc9" class="">园林的共同设计还需要新的媒介</p><p id="14cbe47a-aac8-4f58-8bd8-4ab1534c4ced" class="">
+</p><h3 id="d7c8d56a-850c-42d3-b0d3-cb6dfe4b5302" class="">全生命周期共同设计的媒介——数字孪生公园？（基础设施）</h3><p id="5aca25dd-6cba-4af2-ba6e-1275bb94e6c6" class="">游戏来讲，运营管理结合都比较高（从外行的视角）</p><p id="91a01402-2ab4-4895-b5a6-aedc2bf48d06" class="">但对于园林来讲，数字化的管理涉及一个新的媒介的创造，即数字孪生公园。（是不是更接近第二个交互领域？）</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

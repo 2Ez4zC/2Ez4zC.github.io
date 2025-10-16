@@ -1,0 +1,730 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>“游戏的人”学习感悟 | 电子游戏和园林的服务和运营管理</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8cc4253c-e342-4b9f-a3f5-a1fc1dac2428" class="page sans"><header><h1 class="page-title">“游戏的人”学习感悟 | 电子<strong>游戏和园林的服务和运</strong>营管理</h1><p class="page-description"></p></header><div class="page-body"><h2 id="f9ab3d8f-53ae-438a-bba5-725a8c856a9f" class="">园林的运营、公益性及其限制</h2><p id="aa7e2fe1-ce71-434f-849a-fc86d974c062" class="">古代君王或文人出资建造一座私家园林或者皇家园林无疑是一种“买断制”。现在公共园林作为公益性质，全民共享的基础设施，“买断性”体现的不是很直接。（间接来讲从税收到政府财政，到城投公司，到建成也是一种买断？）。人民感知到的更多是“服务”。</p><p id="9e63257e-39fe-4dfd-8327-bdc845067982" class="">新经济形势下，公园营收这一话题。公园也面临着从一次消费的”买断制“到持续营收的转变。后文将着重介绍。</p><p id="4c4eefc6-eac4-4b80-b7ca-343623961bb0" class="">
+</p><p id="ebf6b062-f336-4f80-a0c7-d7d99b816f64" class="">投融资政策改革对公园运营提出了更高的要求</p><p id="6b67b6a1-4f47-40f8-a3c5-b653423bb6fb" class="">提高内源性运营收入，增强业态和活态</p><p id="ad008018-db99-4e7e-a02e-06e13f731712" class="">
+</p><h2 id="23476ed2-e46b-4515-a706-7a65b88f3f11" class="">持续运营游戏的营收逻辑探讨</h2><p id="58697037-878f-4ce5-b5ad-f21e97130c7c" class="">游戏按照营收方式可以分为两个类型，买断制和持续运营制度，从发展过程还可以拆解为：</p><p id="61141ef4-a151-4571-9067-00c0ff910b6c" class="">买断制游戏（作品游戏）：作为一个独立，静态的商品，</p><p id="9d12f5b9-47ad-4ac5-a209-8058a82bf52b" class="">免费游戏：营收形式探索过程中的一种实验政策</p><p id="505f7117-b5cc-4f3b-b092-9b0738a9c05c" class="">消费游戏 free to play：服务内容的转变</p><p id="fd9e8c75-8e43-4763-921c-deb96104b537" class="">氪金游戏 pay to win ：野蛮生长过程中出现的一种不可持续的形式</p><p id="693224ae-7fea-4a05-b69c-0ed428ba8b23" class="">赌博游戏</p><p id="6e5cb956-73fe-4f04-b3ee-1480edc38c3a" class="">
+</p><p id="3b91a8bf-95e6-47f8-a1e7-28ce8414511a" class="">free to play的营收模式</p><p id="e936fbde-d610-4540-a694-bd21584912bf" class="">steam第二期，军团要塞2</p><p id="09c74c3e-0747-4768-903d-650f89f48937" class="">
+</p><p id="da7ceba2-e400-425f-adbf-8294332bfff0" class="">帽子</p><p id="ccf16d12-3c1d-43c5-b4ed-5da50fd98045" class="">不一样的帽子</p><p id="8849e61a-fb96-4f71-ac61-55b90d0bd34c" class="">一样的帽子有不一样的编号</p><p id="746b3045-61d1-4cb5-9379-8c5e27efe93a" class="">……</p><p id="9d7bf07d-0fa3-4bcb-9d11-29a6305575ec" class="">
+</p><p id="6c5fe8ea-ed17-45a3-af9a-b5350217283f" class="">只要是不同的东西，人们就会有不同的价值判断</p><p id="8faaeece-b823-4a66-86ee-e17de5319f2b" class="">
+</p><p id="fa52c1f2-5153-4e39-9ca8-ff9d26cecd03" class="">
+</p><p id="517928af-873d-4f64-9adf-6b978345920c" class="">设想一种架构</p><p id="907992ba-2d69-4869-9b4b-f261986c7f1e" class="">对公园运营创新的引导</p><p id="18f14b9a-5fd3-4275-a1a5-faf6e6d98483" class="">实体存在形式的创新</p><p id="012d08c4-0cee-4afb-a4f6-e48d8679404f" class="">
+</p><p id="455c3dac-4bc8-4ed0-b646-d08708341932" class="">
+</p><h2 id="39d49297-24e7-48b3-bdec-ae98f6163743" class="">一种公园游戏化运营体系的构思</h2><h3 id="e1c93882-5d31-4ad6-b635-31e2de6a9c89" class="">（1）连接的关键——找到一个”token“</h3><p id="4726982f-2676-45a3-b89b-c544862e0864" class=""> </p><p id="4f0aea7f-0b43-4ce0-9e01-39efefebaac1" class="">如何把游园使用活动，进行数据化的表达</p><p id="9e1bb5b6-c4fc-4ddf-b1d7-6f222d348105" class="">游玩对应的游览活动还是消费活动，频次、强度、必要性</p><p id="1717811a-62bb-4476-bbba-511c2522b892" class="">如何与互联网挂钩：和主流互联网平台、和流量的挂钩？微信、抖音还是小红书？目前单搞一个公园APP怕是不行。说白了要满足人的攀比心理。</p><p id="3d58f4b3-fc90-4f28-a36c-483b445c5ba4" class="">token？虚拟货币代币？</p><p id="1a779d74-e5f4-4b57-a2b4-9dc8fe87580b" class="">
+</p><p id="4ec52608-8f88-400f-b4ba-1e93b4a77d72" class="">平台载体</p><p id="98388044-9871-4cca-853b-d01fbaaf7e43" class="">微信，抖音，小红书？</p><p id="9fbfdc2e-020a-4345-ba69-f399bd2768ea" class="">是怎样覆盖？和传统大平台结合，还是按区域，北京市搞一个平台</p><p id="72df9c49-a80e-4486-b543-4d5a06316d28" class="">还是按公园类型体系？</p><p id="30980212-a0b8-4607-b46d-1a11ee9b0ac9" class="">还是按运营主体，比如甲板的设备和数据已经覆盖了多少个公园，就这这些去做？</p><p id="2933c811-671b-4ec1-90d3-64fff5efe704" class="">
+</p><p id="587bc6c6-256d-4c76-8e6c-be45032833d1" class="">
+</p><p id="dc8ea338-d587-47a3-9e67-704d2afb108b" class="">基于游戏的公园，游戏化改造的公园？</p><p id="7b5828c3-1117-4ba7-98ef-83b788a5f91c" class="">基于公园开发的游戏？公园话的游戏？</p><p id="c5e3d590-3e4b-43ba-8775-d7f796dbaa62" class="">并不一定一一对应，最先干成的不一定是哪种形式。</p><p id="e7341b52-455a-4a10-b411-afe42f9e124d" class="">
+</p><h3 id="90b4ab23-56ae-42fc-b1fc-316da01bff26" class="">（2）具体活动形式的策划</h3><p id="73b2a0cc-ba91-4890-87c1-f323794b20b5" class="">线上有哪些，线下有哪些，如何结合</p><p id="3828898f-1963-41c7-be94-80993217527d" class="">
+</p><p id="7c3e1c75-de25-4574-b3fa-afa516e450bc" class="">怎么做到不刻意，不让人觉得是在割韭菜，智商税</p><p id="61adde22-8e2a-4176-9bd4-1f41aaf6fb60" class="">不是消费主义陷阱在游憩活动中的投影</p><p id="91bd4a89-0a18-4e05-b418-d54b91b1828f" class="">
+</p><p id="956aac6e-c80a-4729-98be-8f81d135bb1b" class="">任务发布，活动策划</p><p id="9f814d1d-43b3-4bca-b2c0-2393d8e61213" class="">如何结合互联网，移动设备，公园</p><p id="725b6cdb-9beb-497a-b7a8-c34a793ba439" class="">策划一些好玩的活动？</p><p id="af89905e-3699-478c-ab6a-b1801eb9c051" class="">
+</p><p id="741b9a27-79d9-4e42-a98d-790cada8a645" class="">
+</p><p id="29c76a58-4522-4578-8b38-483e752e8336" class="">活动的粘性，归属感？</p><p id="7452fdb0-2fd5-4d77-a441-d477db11c3bc" class="">重复的趣味，重复中的变化的趣味</p><p id="41a357ac-beca-4eb5-88da-6bfd8a2d1f07" class="">也是价值感？</p><p id="66b30fbf-217b-4b31-a9d2-5de74fa3ca57" class="">
+</p><ul id="0c0ef287-210e-404a-a557-bf8730419e0c" class="bulleted-list"><li style="list-style-type:disc">要突破载体的限制，让活动和空间，和人的交互去结合</li></ul><p id="813f36be-cf31-47f0-accb-834250ed4bf6" class="">园林可以借鉴的游戏形式，与现实空间交往活动相关的游戏，这里要脱离游戏的载体形式，排除掉在公园中摆一个单车，对面方一个屏幕这种情况。环境以及人在现实中的活动要作为必备的部分。可移动设备擦肩游戏，ar游戏pokemon go</p><p id="01794f1d-ea40-418b-8549-df565679c0e1" class="">
+</p><h3 id="644ad2c5-2cca-4242-b598-41e84a03ec63" class="">（3）如何营造价值感</h3><p id="65e67e0f-56bd-45ac-945b-62715b632d8d" class="">
+</p><p id="980e9e23-0f0b-464b-a1d4-d7f1a255b199" class="">虚拟物品如何产生价值感</p><p id="0ac8edbb-e973-4426-9a6c-4d8ff969c863" class="">
+</p><p id="a09bfca7-13e6-4f2c-898a-2fd6f2a7c1e1" class="">公园的AR场景，AR元素，一个空的雕塑底座，不同的人用自己的设备可以看到自己的专属雕塑，还可以邀请别人来看（类比《我的世界》或者《动森》里邀请别人来做客的感觉）</p><p id="601110fe-cf22-4d22-92a5-d06619ba2156" class="">类比，游戏里的地图、场景皮肤</p><p id="af9c080c-d55c-4b83-ba60-4876792903c1" class="">AR穿戴，类比游戏里的角色皮肤和饰品，可以用人结合虚拟穿戴去打卡拍照？</p><p id="68a7830a-e4d7-47b0-a5a7-2c95d9b8ad64" class="">虚拟物品兑换干货周边，token制？还是编码制度？</p><p id="d5f72113-66f3-4bc5-b178-f9aff03d9b4a" class="">
+</p><p id="e88d6b8e-936a-4230-8eab-6c3e037480a5" class="">来点干货：高品质周边，限定获得？别搞那种一眼看上去就是智商税割韭菜的东西，搞点真正优秀让人喜欢的。比如故宫文创，比如甲板相关的实践。</p><p id="7386a023-d9fa-40da-b19d-0a83a609957f" class="">
+</p><p id="f20ba764-baa3-4492-b401-ccc0999ac359" class="">亚文化圈子，快闪园（对照快闪店）</p><p id="8b32a9a6-93da-448c-b822-006003a2171a" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

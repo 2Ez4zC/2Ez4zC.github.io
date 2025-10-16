@@ -1,0 +1,730 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>创新驱动</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1609c295-5501-80d3-b1be-df25f21b92ff" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📰</span></div><h1 class="page-title">创新驱动</h1><p class="page-description"></p></header><div class="page-body"><p id="1609c295-5501-80b2-85e7-ead66f5cec65" class="">
+</p><p id="1609c295-5501-8081-96b5-c81246ca004d" class="">
+</p><div id="1609c295-5501-8060-8de0-dddf995da77e" class="column-list"><div id="1609c295-5501-805b-9902-e5f3b1bed830" style="width:29.166666666666664%" class="column"><h1 id="de6c9443-3f7a-49c3-8d77-b2acccdea956" class="">技术集成</h1><p id="1609c295-5501-80ce-8247-e5d8572c67e2" class="">
+</p><p id="3aa37adc-91f2-4390-840e-95a46e285584" class="">第四次模拟</p><p id="1609c295-5501-803b-a42b-ebddb76f6c58" class="">
+</p><figure id="7c4f5c3f-5a86-4621-9142-4d29d228a694" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E8%87%AA%E5%BA%8F%207c4f5c3f5a86462191424d29d228a694.html">自序</a></figure><figure id="93d6814d-7610-4fb6-aeb0-4e8aa45cfcc6" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E5%AF%BC%E8%AF%BB%2093d6814d76104fb6aeb04e8aa45cfcc6.html">导读</a></figure><p id="d76c7ba1-f598-4a3f-a3ab-f58ed72026c8" class="">
+</p><figure id="67462a86-4968-46b5-934a-b2d26e6689bc" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/1%20%E9%A3%8E%E6%99%AF%E5%9B%AD%E6%9E%97%E4%BF%A1%E6%81%AF%E5%8C%96%E8%AE%BE%E8%AE%A1%2067462a86496846b5934ab2d26e6689bc.html">1 风景园林信息化设计</a></figure><figure id="66a5b563-7b01-4f81-92a8-cba69948d3c3" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/2%20%E8%BD%AF%E4%BB%B6%E4%B8%8E%E5%B7%A5%E5%85%B7%E7%9A%84%E6%80%9D%E8%BE%A8%2066a5b5637b014f8192a8cba69948d3c3.html">2 软件与工具的思辨</a></figure><figure id="d0f52c77-96c6-47ad-bcc2-18141d27ee4e" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/3%20%E4%BF%A1%E6%81%AF%E5%8C%96%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%84%BF%E6%99%AF%20d0f52c7796c647adbcc218141d27ee4e.html">3 信息化设计的愿景</a></figure><figure id="beff6e70-cd27-49e9-926f-6b3f512fa6ad" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/4%20%E2%80%9D%E7%AC%AC%E5%9B%9B%E6%AC%A1%E6%A8%A1%E6%8B%9F%E2%80%9C%20beff6e70cd2749e9926f6b3f512fa6ad.html">4 ”第四次模拟“</a></figure><p id="d950b595-b5af-4062-96bc-ca6ef33b6d2b" class="">
+</p><figure id="7b3963f8-21f6-4c22-bda3-6211af1b7398" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/5%20%E6%95%B0%E6%8D%AE%E4%B8%8E%E6%8A%80%E6%9C%AF%E9%9B%86%E6%88%90%E4%BD%93%E7%B3%BB%207b3963f821f64c22bda36211af1b7398.html">5 数据与技术集成体系</a></figure><figure id="7b695507-d0d5-443f-a4e7-9d9dff01783e" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/6%20%E5%AE%9E%E5%8A%A1%EF%BC%9A%E9%AB%98%E6%95%88%E6%84%9F%E7%9F%A5%207b695507d0d5443fa4e79d9dff01783e.html">6 实务：高效感知</a></figure><figure id="c6f6ef64-995f-4d35-b53b-c760137550d5" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/7%20%E5%AE%9E%E5%8A%A1%EF%BC%9A%E8%AF%84%E4%BC%B0%E5%88%86%E6%9E%90%20c6f6ef64995f4d35b53bc760137550d5.html">7 实务：评估分析</a></figure><figure id="614daf08-d1fc-420a-9a66-7186d8795446" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/8%20%E5%AE%9E%E5%8A%A1%EF%BC%9A%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%EF%BC%88%E8%9E%8D%E5%85%A5%E4%BA%A4%E4%BA%92%E4%B8%8E%E4%BA%A4%E4%BB%98%EF%BC%89%20614daf08d1fc420a9a667186d8795446.html">8 实务：系统设计（融入交互与交付）</a></figure><p id="eb5c0c3f-2aba-44cc-b1e4-407c607bdff9" class="">
+</p><figure id="d145a424-b1af-41b6-987e-8690c049c881" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/9%20%E5%B1%95%E6%9C%9B%EF%BC%9A%E5%A4%9A%E5%85%83%E5%8D%8F%E5%90%8C%20d145a424b1af41b6987e8690c049c881.html">9 展望：多元协同</a></figure><figure id="2af550d2-514c-4915-aa31-8b59552fc80f" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/10%20%E5%B1%95%E6%9C%9B%EF%BC%9A%E6%95%B0%E6%99%BA%E8%B5%8B%E8%83%BD%202af550d2514c4915aa318b59552fc80f.html">10 展望：数智赋能</a></figure><p id="bab465fe-72b5-452f-a603-cd5015889be2" class="">
+</p><figure id="5f07911c-311d-481c-a476-a848f183545e" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5%E4%B8%8E%E7%BA%BF%E7%B4%A2%205f07911c311d481ca476a848f183545e.html">关键概念与线索</a></figure><figure id="bdf79ecf-cc3f-4183-a4d6-17f300f99fb8" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E5%90%8E%E8%AE%B0%20bdf79ecfcc3f4183a4d617f300f99fb8.html">后记</a></figure><p id="dca91421-5a74-4d57-9e00-5ea51ad64c9c" class="">
+</p><hr id="9d724bd5-8cef-462a-abbb-07d481f82cad"/><p id="d257c61d-74d1-4245-aab7-b3ad894f8f95" class="">
+</p><figure id="7741ec68-3277-4194-84e7-e6113644fe5d" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/20240119%207741ec683277419484e7e6113644fe5d.html">20240119</a></figure><p id="61e96348-989c-4cd6-b8dd-1c020c5588eb" class="">
+</p><p id="83c4edee-f714-41a9-a5b6-f7e2b340536f" class="">
+</p><p id="0f7163a3-d60f-4263-a718-dc9ffb92125a" class="">
+</p></div><div id="1609c295-5501-80cd-9565-ca1b6d17400a" style="width:41.666666666666664%" class="column"><h1 id="1609c295-5501-80b9-9a56-cb571db39b8d" class="">行业转型</h1><figure id="1609c295-5501-80e4-bb9d-f7d833f1f5c6" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/1%20%E8%83%8C%E6%99%AF%EF%BC%9A%E9%9C%80%E6%B1%82%E3%80%81%E9%99%90%E5%88%B6%E4%B8%8E%E7%AA%81%E7%A0%B4%201609c295550180e4bb9df7d833f1f5c6.html">1 背景：需求、限制与突破</a></figure><figure id="1609c295-5501-807d-84e5-d4c526c38334" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/2%20%E6%94%BF%E7%AD%96%E8%A1%94%E6%8E%A5%EF%BC%9A%E6%95%B0%E5%AD%97%E4%BD%8F%E5%BB%BA%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80%201609c2955501807d84e5d4c526c38334.html">2 政策衔接：数字住建整体布局</a></figure><figure id="1609c295-5501-8014-82c8-e150ff5e5439" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/3%20%E6%80%BB%E4%BD%93%E8%A6%81%E6%B1%82%201609c2955501801482c8e150ff5e5439.html">3 总体要求</a></figure><p id="1609c295-5501-8077-a65a-dc3b1c5c7d00" class="">
+</p><h1 id="1609c295-5501-80b1-b0cc-dbcd111ebe69" class="">3 数字经济</h1><p id="1609c295-5501-80f3-92ac-d6f3294d3ab1" class="">从业者视角</p><h3 id="1609c295-5501-80f8-aca3-e1b88c1088a2" class="">业务数据化</h3><p id="1609c295-5501-8038-a48e-f96d7127a753" class="">（技术集成）</p><h3 id="1609c295-5501-8006-82a4-da2c9df6ef3f" class="">数据业务化？</h3><p id="1609c295-5501-807d-ab18-da1e7c0a006e" class="">合作伙伴：摆脱专业限制，突破合作圈，实际内容是交叉领域合作，给电子游戏背书？</p><p id="1609c295-5501-8013-b2d8-f5194382628c" class="">数据资源：挖掘现有数据，突破资源圈、实际内容，是四类数据（技术）对应的新业务</p><p id="1609c295-5501-8072-80ce-f6c27c7ed9d3" class="">信息技术：正视技术代沟，突破技能圈，实际内容是结合了云、数、智的新技术体系认知</p><p id="1609c295-5501-80ba-8ebd-d938d932325b" class="">重要的不是新技术，而是新思维，互联网思维？</p><h1 id="1609c295-5501-8023-ae9e-c115244b249f" class="">4 数字社会</h1><p id="1609c295-5501-809a-b4db-e24cf129e6c5" class="">立足服务者视角，关注使用者需求</p><p id="1609c295-5501-802c-b3ab-dc68dd819532" class="">生态宜居、游憩服务供给</p><h1 id="1609c295-5501-802c-ad2f-ec7576a3f854" class="">5 数字政府</h1><p id="1609c295-5501-80df-873c-d13135d9c3fb" class="">立足服务者视角，关注管理者需求</p><p id="1609c295-5501-806f-9a1e-ef084c33e7f5" class="">生态环境、公共服务、绿色低碳</p><h1 id="1609c295-5501-80ba-a12b-d22686018003" class="">6 拓展领域</h1><p id="1609c295-5501-8007-8ed7-cb57bf7a749a" class="">数字人文与文化增容</p><p id="1609c295-5501-8058-884a-fcf9c387a7ff" class="">互联网经济、流量经济</p><p id="1609c295-5501-80ea-9673-c40c1cabcc00" class="">ESG</p><h1 id="1609c295-5501-80a6-be4d-f3349773ae29" class="">工作落实</h1><p id="1609c295-5501-807f-bbb7-f6f511095b0a" class="">结合分院信息化中心相关工作</p><p id="1609c295-5501-80ed-8574-e075c91908a2" class="">做好服务</p></div><div id="1609c295-5501-80b5-a9b7-d25455ccea4b" style="width:29.16666666666668%" class="column"><h1 id="1609c295-5501-802a-b274-c90711a608a3" class="">游戏研究</h1><p id="1609c295-5501-80e7-a518-ee927c1a80e4" class="">
+</p><figure id="1609c295-5501-8025-a99d-ede37a75509a" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E5%85%B1%E6%80%A7%E5%88%86%E6%9E%90%201609c29555018025a99dede37a75509a.html">共性分析</a></figure><p id="1609c295-5501-80aa-8a55-db1efc2b6f2a" class="">
+</p><figure id="1609c295-5501-80fb-af61-d2e3e64afe2b" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%C2%B7%E5%9C%BA%E6%99%AF%E4%BA%92%E5%8A%A8%201609c295550180fbaf61d2e3e64afe2b.html">基础原理·场景互动</a></figure><figure id="1609c295-5501-808f-a6b8-cc3c13b50402" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%C2%B7%E5%85%B1%E5%88%9B%E5%85%B3%E7%B3%BB%201609c2955501808fa6b8cc3c13b50402.html">基础原理·共创关系</a></figure><figure id="1609c295-5501-80a5-8d00-feee2a6236a3" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%C2%B7%E6%8C%81%E7%BB%AD%E8%BF%90%E8%90%A5%201609c295550180a58d00feee2a6236a3.html">基础原理·持续运营</a></figure><p id="1609c295-5501-80da-a552-e6542dfd9102" class="">
+</p><ul id="1609c295-5501-805a-a66e-f63655a31b1d" class="bulleted-list"><li style="list-style-type:disc">L2G·数字智慧景观</li></ul><ul id="1609c295-5501-8096-bdd0-e5113b4a754a" class="bulleted-list"><li style="list-style-type:disc">L2G·儿童友好、游戏素养教育</li></ul><ul id="1609c295-5501-8032-8730-c2b5d6ce2b11" class="bulleted-list"><li style="list-style-type:disc">L2G·自然教育、自然体验</li></ul><ul id="1609c295-5501-803f-83c8-d37de1969901" class="bulleted-list"><li style="list-style-type:disc">L2G·公众参与</li></ul><ul id="1609c295-5501-80f0-8ec5-cf1e0de0a747" class="bulleted-list"><li style="list-style-type:disc">L2G·设计下乡</li></ul><figure id="1609c295-5501-8038-8574-f3df46da5dbc" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/L2G%C2%B7%E5%85%AC%E5%9B%AD%E8%BF%90%E8%90%A5%201609c295550180388574f3df46da5dbc.html">L2G·公园运营</a></figure><figure id="1609c295-5501-8038-832a-f667d311c72f" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/L2G%C2%B7%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E6%8C%87%E6%95%B0%E5%88%9B%E6%96%B0%201609c29555018038832af667d311c72f.html">L2G·数据驱动指数创新</a></figure><p id="1609c295-5501-807c-a366-c01da424c201" class="">
+</p><figure id="1609c295-5501-8041-b60c-e24750ba3c1f" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/G2L%C2%B7%E5%85%AC%E5%9B%AD%E6%B8%B8%E6%88%8F%E5%8C%96%E4%BD%93%E7%B3%BB%201609c29555018041b60ce24750ba3c1f.html">G2L·公园游戏化体系</a></figure><figure id="1609c295-5501-8071-bfa2-db01d9c58e43" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/G2L%C2%B7%E5%85%AC%E5%85%B1%E7%A9%BA%E9%97%B4%E6%9C%8D%E5%8A%A1%E6%B8%B8%E6%88%8F%E7%B4%A0%E5%85%BB%E6%95%99%E8%82%B2%EF%BC%9F%201609c29555018071bfa2db01d9c58e43.html">G2L·公共空间服务游戏素养教育？</a></figure><p id="1609c295-5501-808a-bead-e5ffb29b5357" class="">
+</p><figure id="1609c295-5501-80ae-82b2-c44f7c9855ac" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E6%AD%A3%E5%90%91%E4%BB%B7%E5%80%BC%201609c295550180ae82b2c44f7c9855ac.html">正向价值</a></figure><p id="1609c295-5501-8036-bf47-de30518459ff" class="">
+</p><hr id="1609c295-5501-8055-933c-e4ca91c4f9ca"/><p id="1609c295-5501-8078-9a7c-fec9c810ecd1" class="">
+</p><p id="1609c295-5501-80c7-9672-f38b57b8c65f" class="">
+</p><figure id="6479c6c1-9942-4c9d-b14a-2d0adf60ed01" class="link-to-page"><a href="%E5%88%9B%E6%96%B0%E9%A9%B1%E5%8A%A8%201609c295550180d3b1bedf25f21b92ff/%E2%80%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BA%BA%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F%20%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%92%8C%E9%A3%8E%E6%99%AF%E5%9B%AD%E6%9E%97%E7%9A%84%E4%BA%A4%E4%BA%92%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%206479c6c199424c9db14a2d0adf60ed01.html">“游戏的人”学习感悟 | 电子游戏和风景园林的交互领域研究</a></figure><p id="1609c295-5501-8092-9751-d058ea62c57e" class="">
+</p></div></div><p id="1609c295-5501-8007-adbf-d2a0a2897f6d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

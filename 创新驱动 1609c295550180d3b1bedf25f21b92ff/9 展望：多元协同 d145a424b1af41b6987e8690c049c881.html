@@ -1,0 +1,717 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>9 展望：多元协同</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d145a424-b1af-41b6-987e-8690c049c881" class="page sans"><header><h1 class="page-title">9 展望：多元协同</h1><p class="page-description"></p></header><div class="page-body"><p id="61e6fce1-2846-4294-946d-5d9e8928e1e2" class="">
+</p><p id="4042a749-7065-4de5-bc20-68613199c8c1" class="">
+</p><hr id="dda3405e-90ba-4502-a0e8-ec02e9db07c1"/><p id="17f19fd9-d1cf-4855-b483-71133b916a86" class="">
+</p><h1 id="4ce9ac02-dca7-4fac-b27a-4dd4a0bb3b66" class="">9.1 施工配合</h1><p id="e1226b00-565b-4c6d-bd44-db9e9697a0b2" class="">
+</p><p id="748cde23-ca4a-4cb7-849c-a0e20ad6d736" class="">
+</p><hr id="4fc7f406-8b98-43a8-8e7e-54f38b152e6c"/><p id="cb804d50-6e3d-46f9-8b7f-d218d3760108" class="">
+</p><h1 id="6eff03c5-c021-4b03-b689-60dcb9c89fca" class="">9.2 建设管理</h1><p id="aecbad02-3629-4a31-85e2-960ede6550d2" class="">CIM平台的概念：</p><p id="6d8807f2-cff1-4ae2-bddf-f8286badb648" class="">城市信息模型（CIM）</p><p id="48d79ed8-2873-4f5b-af09-e99fd08584f9" class="">以BIM、GIS、IoT等技术为基础，整合城市全时空多维多尺度信息模型数据和城市感知数据，构建起三维数字空间的城市信息有机综合体。</p><p id="19994ed0-7be5-42bf-9d6d-a3f636dafebd" class="">城市信息模型基础平台</p><p id="3c395467-3272-4e05-b40b-1b95cc7501b6" class="">CIM基础平台是在城市基础地理信息的基础上，建立建筑物、基础设施等三维数字模型，表达和管理城市三维空间的基础平台，是城市规划、建设、管理、运行工作的基础性操作平台，是智慧城市的基础性、关键性和实体性信息基础设施。</p><p id="c93e897b-0bff-4dc4-a28e-d2a25c0fef8b" class="">随着先行实践和技术标准的推进， CIM平台在全国范围初步形成了广泛开展的趋势</p><p id="49992e3b-e5d2-43bf-b9c4-a13cdccf864d" class="">雄安新区形成了以政府管控平台为主导，运维平台和项目应用标准为辅助，全面推进各专业信息模型技术全生命周期应用的良好格局。</p><p id="74fa8426-ad3a-4b25-aec2-5dae125554dc" class="">1.1参与平台开发</p><p id="6505e11c-0fa8-47d0-8dfd-2d65a54a643a" class="">随着先行实践和技术标准的推进， CIM平台在全国范围初步形成了广泛开展的趋势</p><p id="b5ae7a8a-0e16-44f6-b37c-9a2fb585bc4b" class="">雄安新区形成了以政府管控平台为主导，运维平台和项目应用标准为辅助，全面推进各专业信息模型技术全生命周期应用的良好格局。</p><p id="fc91551a-4152-4a40-8703-00043f78f41d" class="">1.2 参与平台运行</p><p id="4b6e139e-4205-42f0-8d2f-278cb84f60f1" class="">整体交付应用和正向应用的关系</p><p id="212edfae-16e1-4e40-8bbc-b2b2bfd208e9" class="">关于取消图审</p><p id="986c56da-0883-4d28-a18a-f3cf489d7c54" class="">“取消图审”≠启用BIM模型审查</p><p id="ea8ff1f3-903e-4e5c-b88e-518feeb3dc56" class="">“取消图审”不是“取消审图”，施工图这一形式未被否定，只是由第三方审查改为自审。BIM审查与取消图审虽然内在线索相通（都是审批制度改革中的一环），但执行起来是两件不同的事。三维模型成果的法定化是BIM审查的必要条件，但这不由软件开发商或培训机构主导，要靠行业参与者多方论证才能推行，顶层设计之下，还会有一线设计师参与规则制订。政府会借助政策刺激行业环境，但不会强制执行政策导致建设工程无法运行。</p><p id="917e96b1-f1f1-4c08-aaf1-531841a33973" class="">湖南省BIM审图只在建筑工程部份试用，其他市政工程暂不开始BIM审图。广州市对2万平米以上的大型房屋建筑工程，大型桥隧工程，城市轨道交通工程实行施工图三维辅助审查。</p><p id="f18f2e49-103c-43d9-8f07-cf1e91cb1a9b" class="">园林工程的图纸审查工作不像前文提及的关键工程具有较高强制性，不同项目的图审流程根据业主及管理部门的要求会有不同。园林工程施工图的替代方案和相应的审查方法仍在探索中，现行BIM证书仅包含建筑、结构、暖通专业的Revit软件应用，相关技术在园林专业的迁移应用价值还有待论证。</p><p id="06f65a07-6135-442e-ad5d-eaf1f2ee4c03" class="">如此“取消图审”是否合理</p><p id="ef36186b-7e5e-4dbd-9697-9c3a2ea52d8f" class="">“取消图审”虽然不直接指向新审查模式的出台，但还是有部分地区管理部门对相关政策做出了预相应，推行介于取消图审和信息化审查之间的举措，这里吐槽一下其中那些给设计师添麻烦的现象：</p><p id="c35849bf-4d10-4c48-a9bd-985629ced7e3" class="">1）某地施工图成果体提交平台要求一张PDF图纸对应一个DWG文件——不在技术方面发力，无视制图习惯，提出机械化的管理方案，将取消图审片面地理解为“取消纸质图审”。</p><p id="8d7467f4-c361-4e8b-8e51-4dcb8a5d16be" class="">2）某地项目审查要求设计单位提交将各类要素（铺装、绿地等）画成封闭曲线的图纸——平台规则与现行制图习惯不匹配。可以说是跑快了，急于取消人工图审，配套技术又跟不上。事虽无大错，但在二维施工图环境下就是给设计师增加了额外工作量。</p><p id="edddd27a-11ea-40ef-90b9-d3449d998ec2" class="">3）某地管理平台审查项目红线，因项管单位提供的红线与控规版本不一致（非规划方案变动，只是因线型变化产生了微小的非人为误差）导致提交的图纸超出规划红线——技术无法解决人的问题。方向对了，运营没跟上。</p><p id="818dbffc-3ab4-4cda-9aa7-181c84636bc5" class="">管理部门和业主在响应政策导向时，一定要准确认知政策要求，不要过度响应。先规范建设项目（尤其公共项目）的建设管理，减少无视审查审计无限制变更的情况，否则再先进的BIM技术和再优化的审批流程也只是摆设。</p><p id="f68fbc03-84ef-4479-9613-6b803a76f943" class="">从容看待“取消图审”</p><p id="da117426-da95-459b-84a8-0fbc03e168aa" class="">“取消图审”是行业信息化发展的先导、过渡政策，目的在于优化审批流程。业主和管理部门无需过度解读、为改而改。从业者也不必因此产生学习焦虑。</p><p id="befac095-b650-41f8-a17f-2f91b5640406" class="">在“取消图审”和“BIM审查”之上，还有更高层次的“取消人工审查”。传统施工图制图规范更多是为了便于人工审图或指导传统的施工方法。在当前的施工技术下，设计师与建造者完全可以通过图形完成信息传达，图形可以是二维或三维的，最后审图还是审模也并非核心冲突，二维图纸也有二维的好处。审批制度改革的价值应是解放制图规范，让设计与建造更高效地交流，审查的事情交给计算机。</p><p id="dd05e2e1-e24a-477c-b9b7-dcb8a6d2531a" class="">据人力资源和社会保障部2019年11月预测，未来五年我国BIM技术人才需求量达130万人。中国经济报的预估数据显示，我国全职从事建筑行业（城乡规划、建筑设计、风景园林、环境艺术）的设计师约102万人。这是否意味着设计行业将会经历大换血？不学软件会不会被取代？其实，AutoCAD也是有证书的，但谁听说过有人因为没考CAD证书而找不到工作？在全面推行BIM模型审查之前，BIM软件的普及也会达到一定程度，或成为新的常备环节，由专门团队负责。（这部分和百万曹军勾兑一下？）</p><p id="49fe260b-187c-41bc-b001-14614e1f3bf4" class="">
+</p><hr id="e92a1b2e-f618-4b44-b879-c99ef5e5a00d"/><p id="afee1bd8-4b9c-4134-9cfe-3ff321d0d8c0" class="">
+</p><h1 id="345f5aa7-f16b-4273-8c92-a6b1c7aac75b" class="">9.3 运维服务</h1><p id="7434e35e-7372-467f-affe-93b22411756d" class="">
+</p><p id="0ff8d99f-5802-4ce7-aa90-ce2f3f3d1111" class="">
+</p><hr id="333f7399-8c4d-469e-a9c8-0d542db22301"/><p id="a487a9bf-b52a-4ba1-a3a8-eba978fc3cff" class="">
+</p><h1 id="b7c482a6-754c-42f6-89b6-911e963d10e0" class="">9.4 多元体验</h1><figure id="64ef8af0-b27f-43cd-9b69-8cc1113d8560" class="link-to-page"><a href="9%20%E5%B1%95%E6%9C%9B%EF%BC%9A%E5%A4%9A%E5%85%83%E5%8D%8F%E5%90%8C%20d145a424b1af41b6987e8690c049c881/10%20%E6%9C%BA%E5%88%B6%EF%BC%9A%E5%8D%8F%E5%90%8C%E4%BA%A4%E4%BB%98%2064ef8af0b27f43cd9b698cc1113d8560.html">10 机制：协同交付</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
